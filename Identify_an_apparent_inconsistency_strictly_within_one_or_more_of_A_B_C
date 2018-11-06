@@ -1,0 +1,50 @@
+
+------- BEGIN A   --------------------------------------------------------------
+             4.2.1.1 No car can occupy the same portion as any other car.
+   ...
+   7.5 A "section" is the portion of a street between two adjacent 
+       intersections.  
+   ...
+   7.11 A "division" refers to a portion that makes up a segment, or one of the 
+        four portions of an intersection. It is the amount of space that one car
+        takes up, and thus only one car can occupy a division at a time.
+------- END   A   --------------------------------------------------------------
+
+
+
+
+
+
+------- BEGIN B   --------------------------------------------------------------
+             4.2.1.10 If any two cars wanting to enter the same intersection
+                     have equal priority and there is contention between their
+                     paths through that intersection, then a car entering the
+                     intersection from the South has priority over cars entering
+                     from any other direction, a car entering from the East has
+                     priority over cars entering from the North or West, and a
+                     car entering from the North has priority over a car
+                     entering from the West.
+             4.2.1.11 Two or more cars can be in the same intersection if and 
+             	     only if their paths in the intersection have no contention.
+------- END   B   --------------------------------------------------------------
+
+
+
+
+
+
+------- BEGIN C   --------------------------------------------------------------
+                     4.2.1.2.2 If one or more than one car are in the 
+                               intersection, and the intersection paths of any 
+                               car that is in the intersection and the car 
+                               trying to enter the intersection do NOT overlap,
+                               the car trying to enter the intersection will
+                               enter the intersection.
+                     4.2.1.2.2 If one or more than one car are in the 
+                               intersection, and the intersection paths of any 
+                               car that is in the intersection and the car 
+                               trying to enter the intersection DO overlap,
+                               the car trying to enter the intersection will
+                               NOT enter the intersection.
+------- END   C   --------------------------------------------------------------
+
