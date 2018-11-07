@@ -12,22 +12,22 @@ public class Intersection{
   public Intersection(){
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
-  }  
+  }//Intersection Constructor  
 
   public void setInbound(Segment sg, int i) {
     myInboundSeg[i] = sg;
-  }
+  }//setInbound
 
   public void setOutbound(Segment sg, int i) {
     myOutboundSeg[i] = sg;
-  }
+  }//setOutbound
 
   public Segment getInbound(int i) {
     return myInboundSeg[i];
-  }
+  }//getInbound
 
   public Segment getOutbound(int i) {
     return myOutboundSeg[i];
-  }
-}
+  }//getOutbound
+}//Intersection
   
