@@ -11,7 +11,7 @@ public class TrafficModel {
     private int numIntersectionsInOneDirection, numInitalCars;
     private Car [] carArray;
     private static GridControl gc;
-    private Intersection ints [][];
+    private Intersection intersection [][];
 
 
 public TrafficModel(int numIntersections, int numCarsToBegin){
@@ -39,12 +39,12 @@ public void addCar(int carID,
   // 0:N; 1:W; 2:S; 3:E
 public void startSimulation(){
     gc = new GridControl(numIntersectionsInOneDirection);
-    ints = gc.getIntersections();
+    intersection = gc.getIntersections();
 
     for(int x = 0; x < numIntersectionsInOneDirection; x++){
         for(int y = 0; y < numIntersectionsInOneDirection; y++){
             for(int n =0; n < 4; n++){
-                System.out.println("Int: " + x +" " + y + " " + "Seg: " + n + " " + ints[x][y].getOutbound(n).getIsEdge());
+                System.out.println("Int: " + x +" " + y + " " + "Seg: " + n + " " + intersection[x][y].getOutbound(n).getIsEdge());
             }
         }
     }
