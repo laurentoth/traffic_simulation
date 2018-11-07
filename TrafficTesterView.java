@@ -84,6 +84,8 @@ public class TrafficTesterView {
       model.addCar(carID, row, col, segmentDirectionCode,
                    numBlocksBeforeTurning, turnDirectionCode);
     } // end for
+    System.out.println("STARTING SIM");
+    model.startSimulation();
 
   } // main
 

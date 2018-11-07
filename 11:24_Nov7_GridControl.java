@@ -15,7 +15,7 @@ public class GridControl{
     int segmentCapacity = 10;
     this.numIntersections = numIntersectionsInOneDirection;
     intersections = new Intersection[numIntersections][numIntersections];
-    segments = new Segment[numIntersections * 4 * 2];
+    segments = new Segment[numIntersections * 4];
     int direction = 0;
 
     for (int x = 0; x < segments.length; x++) {
@@ -28,12 +28,14 @@ public class GridControl{
     for (int r =0; r < numIntersections; r++){
         for (int c = 0; c < numIntersections; c++) {
              intersections[r][c] = new Intersection();
+             System.out.println("r: " + r + " c: " + c);
          }
     }
 
 
     for (int index = 0; index < numIntersections * numIntersections; index++) {
         for (int i =0; i <4; i++){
+        System.out.println("DEBUG Intersection: " + index/numIntersections + " " + index % numIntersections + " INDEX: " + index);
         intersections[index / numIntersections][index % numIntersections].setInbound(segments[4 * index + i], i);                                  // i represents the direction
       }
   }

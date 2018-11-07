@@ -20,4 +20,8 @@ public class Segment {
     return;
   }
 
+  public boolean getIsEdge(){
+    return isEdge;
+  }
+
 }
