@@ -1,4 +1,5 @@
 // Programmer: Team FOXES (c) Copyright 2018
+// Greg, 
 // *****************************************************************************
 // *****************************************************************************
 // **** GridControl
@@ -15,7 +16,7 @@ public class GridControl{
     int segmentCapacity = 10;
     this.numIntersections = numIntersectionsInOneDirection;
     intersections = new Intersection[numIntersections][numIntersections];
-    segments = new Segment[numIntersections * 4 * 2];
+    segments = new Segment[numIntersections * 4 * numIntersections];
     int direction = 0;
 
     for (int x = 0; x < segments.length; x++) {
