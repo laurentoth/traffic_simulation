@@ -6,8 +6,6 @@
 // *****************************************************************************
 
 public class GridControl{
-  // n: num intersections per row/col, so 
-  // numIntersections = n * n
   // 0:S 1:E 2:N 3:W (aiming in that direction)
     private Intersection[][] intersection;
     private Segment[] segment;
@@ -15,86 +13,83 @@ public class GridControl{
 
   public GridControl(int numIntersectionsInOneDirection){
     int segmentCapacity = 10;
-    this.numIntersections = numIntersectionsInOneDirection;
+    this.numIntersections = numIntersectionsInOneDirection + 1;
     intersection = new Intersection[numIntersections][numIntersections];
     segment = new Segment[numIntersections * 4 * numIntersections];
     int direction = 0;
 
-    for (int x = 0; x < segment.length; x++) {
-      segment[x] = new Segment(segmentCapacity, direction);
+    for (int index = 0; index < segment.length; index++) {
+      segment[index] = new Segment(segmentCapacity, direction);
       direction++;
       if(direction == 4)
         direction = 0;
     }// end of for (int x = 0; x < segment.length; x++)
 
-
-    for (int r =0; r < numIntersections; r++){
-        for (int c = 0; c < numIntersections; c++){
-             intersection[r][c] = new Intersection();
+    for (int row = 1; row < numIntersections; row++){
+        for (int col = 1; col < numIntersections; col++){
+             intersection[row][col] = new Intersection();
          } // end of for (int c = 0; c < numIntersections; c++)
     }//end of for (int r =0; r < numIntersections; r++) 
 
-    for (int i = 0; i < numIntersections; i++){
-        for(int j = 0; j < numIntersections; j++){
-          int index = 4 * (i + j * numIntersections);
-          intersection[i][j].setInbound(segment[index], 0);
-          intersection[i][j].setInbound(segment[index + 1], 1);
-          intersection[i][j].setInbound(segment[index + 2], 2);
-          intersection[i][j].setInbound(segment[index + 3], 3);
-        }//end of for(int j = 0; j < numIntersections; j++)
-    } // end of for (int i = 0; i < numIntersections; i++)
+    for (int row = 1; row < numIntersections; row++){
+        for(int col = 1; col < numIntersections; col++){
+          int index = 4 * ((row - 1) + (col - 1) * numIntersections);
+          intersection[row][col].setInbound(segment[index], 0);
+          intersection[row][col].setInbound(segment[index + 1], 1);
+          intersection[row][col].setInbound(segment[index + 2], 2);
+          intersection[row][col].setInbound(segment[index + 3], 3);
+        }//end of for(int col = 0; col < numIntersections; col++)
+    } // end of for (int row = 0; row < numIntersections; row++)
     
-
-
     // 0:S 1:E 2:N 3:W (aiming in that direction)
     // connect outbound segments to intersections
-    for (int i = 0; i < numIntersections; i++){
-      for (int j = 0; j < numIntersections; j++){
-        if (i + 1 < numIntersections) {
-          intersection[i][j].setOutbound(intersection[i + 1][j].getInbound(2),
+    for (int row = 1; row < numIntersections; row++){
+      for (int col = 1; col < numIntersections; col++){
+        if (row + 1 < numIntersections) {
+          intersection[row][col].setOutbound(intersection[row + 1][col].getInbound(2),
                                          2);
         }
         else {
           Segment sg = new Segment(segmentCapacity, 2);
           sg.setIsEdge(true);
-          intersection[i][j].setOutbound(sg, 2);
+          intersection[row][col].setOutbound(sg, 2);
         }
 
-        if (j - 1 > -1) {
-          intersection[i][j].setOutbound(intersection[i][j - 1].getInbound(3),
+        if (col - 1 > 0) {
+          intersection[row][col].setOutbound(intersection[row][col - 1].getInbound(3),
             3);
         }
         else {
           Segment sg = new Segment(segmentCapacity, 3);
           sg.setIsEdge(true);
-          intersection[i][j].setOutbound(sg, 3);
+          intersection[row][col].setOutbound(sg, 3);
         }
 
-        if (i - 1 > -1) {
-          intersection[i][j].setOutbound(intersection[i - 1][j].getInbound(0),
+        if (row - 1 > 0) {
+          intersection[row][col].setOutbound(intersection[row - 1][col].getInbound(0),
             0);
         }
         else {
           Segment sg = new Segment(segmentCapacity, 0);
           sg.setIsEdge(true);
-          intersection[i][j].setOutbound(sg, 0);
+          intersection[row][col].setOutbound(sg, 0);
         }
 
-        if (j + 1 < numIntersections) {
-          intersection[i][j].setOutbound(intersection[i][j + 1].getInbound(1),
+        if (col + 1 < numIntersections) {
+          intersection[row][col].setOutbound(intersection[row][col + 1].getInbound(1),
             1);
         }
         else {
           Segment sg = new Segment(segmentCapacity, 1);
           sg.setIsEdge(true);
-          intersection[i][j].setOutbound(sg, 1);
+          intersection[row][col].setOutbound(sg, 1);
         }
       }//end of for (int j = 0; j < numIntersections; j++)
     }//end of for (int i = 0; i < numIntersections; i++)
-  }
+  }//GridControl constructor
 
   public Intersection[][] getIntersections() {
     return intersection;
-  }
+  }//getIntersections
 
-}
+}//GridControl

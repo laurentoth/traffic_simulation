@@ -41,12 +41,12 @@ public void startSimulation(){
     gc = new GridControl(numIntersectionsInOneDirection);
     intersection = gc.getIntersections();
 
-    for(int x = 0; x < numIntersectionsInOneDirection; x++){
-        for(int y = 0; y < numIntersectionsInOneDirection; y++){
+    for(int row = 1; row < numIntersectionsInOneDirection+1; row++){
+        for(int col = 1; col < numIntersectionsInOneDirection+1; col++){
             for(int n =0; n < 4; n++){
-              System.out.println("Int: " + x +" " + y + " " + "Seg: " + n +
+              System.out.println("Int: " + row +" " + col + " " + "Seg: " + n +
                                  " " + 
-                                 intersection[x][y].getOutbound(n).getIsEdge());
+                                 intersection[row][col].getOutbound(n).getIsEdge());
             }
         }
     }
