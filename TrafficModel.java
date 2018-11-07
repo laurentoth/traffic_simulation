@@ -21,11 +21,11 @@ public TrafficModel(int numIntersections, int numCarsToBegin){
 }
 
 public void addCar(int carID,
-                    int row,
-                    int col,
-                    int segmentDirectionCode,
-                    int numBlocksBeforeTurning,
-                    int turnDirectionCode){
+                   int row,
+                   int col,
+                   int segmentDirectionCode,
+                   int numBlocksBeforeTurning,
+                   int turnDirectionCode){
 
     carArray[carID-1] = new Car(carID,
                                 row,
