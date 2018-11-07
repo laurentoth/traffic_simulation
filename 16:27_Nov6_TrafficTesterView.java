@@ -1,6 +1,5 @@
 
 // Programmer: Arthur Charlesworth  (c) Copyright 2018
-// Modified by: FOXES (Greg, Lauren, Maxine)
 // *****************************************************************************
 // *****************************************************************************
 // **** TrafficTesterView
@@ -62,10 +61,10 @@ public class TrafficTesterView {
       System.out.println("Car #" + carID);
       console.nextLine();
       console.nextLine();
-      col = console.nextInt();
-      console.nextLine();
-      console.nextLine();
       row = console.nextInt();
+      console.nextLine();
+      console.nextLine();
+      col = console.nextInt();
       console.nextLine();
       console.nextLine();
       segmentDirectionCode = console.nextInt();
@@ -85,8 +84,6 @@ public class TrafficTesterView {
       model.addCar(carID, row, col, segmentDirectionCode,
                    numBlocksBeforeTurning, turnDirectionCode);
     } // end for
-    System.out.println("STARTING SIM");
-    model.startSimulation();
 
   } // main
 
