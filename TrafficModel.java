@@ -1,4 +1,4 @@
-// Programmer: Team FOXES (c) Copyright 2018
+// Programmer: FOXES (Greg, Lauren, Maxine) (c) Copyright 2018
 // *****************************************************************************
 // *****************************************************************************
 // **** TrafficModel
@@ -44,7 +44,9 @@ public void startSimulation(){
     for(int x = 0; x < numIntersectionsInOneDirection; x++){
         for(int y = 0; y < numIntersectionsInOneDirection; y++){
             for(int n =0; n < 4; n++){
-                System.out.println("Int: " + x +" " + y + " " + "Seg: " + n + " " + intersection[x][y].getOutbound(n).getIsEdge());
+              System.out.println("Int: " + x +" " + y + " " + "Seg: " + n +
+                                 " " + 
+                                 intersection[x][y].getOutbound(n).getIsEdge());
             }
         }
     }
