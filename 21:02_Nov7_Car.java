@@ -25,7 +25,7 @@ public class Car{
     myCol = c;
     mySegDirection = direction;
     myNumBlocksBeforeTurning = blocks;
-    myTurnSignal = turn;
+    myTurnDirection = turn;
     myTimeOnGrid = 0;
   } // end of constructor of Car class
 
