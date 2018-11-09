@@ -5,6 +5,8 @@
 // *****************************************************************************
 // *****************************************************************************
 
+import java.util.*;
+
 public class Intersection{
   private Car NorthEast, NorthWest, SouthEast, SouthWest;
   private Segment [] myInboundSeg;
@@ -36,7 +38,7 @@ public class Intersection{
     return myOutboundSeg[i];
   }//getOutbound
 
-  public boolean putCarIntoSegment(Car car, int direction){
+  public void putCarIntoSegment(Car car, int direction){
     myInboundSeg[direction].putCar(car);
   } // end of putCarIntoSegment
 
@@ -49,28 +51,63 @@ public class Intersection{
 
     // returns the order of directions from which car will go
     ArrayList<Integer> carsToMove = carsToMove(c0, c1, c2, c3);
-    for (int i : carsToMove) {
+    for(int i : carsToMove){
       Car headCar = myInboundSeg[i].removeHeadCar();
 
       // need to worry about the turns
       int outboundSegment = segmentToPut(c, i);
+      myOutboundSeg[outboundSegment].putCar(headCar);
+    }// end of for (int i : carsToMove)
 
-      myOutbound[outboundSegment].putCar(headCar);
-    }
-  }
+  }// advance
 
-  public ArrayList<Interger> carsToMove(Car c0, Car c1, Car c2, Car c3){
+
+  public ArrayList<Integer> carsToMove(Car c0, Car c1, Car c2, Car c3){
     // based on the traffic rule, 
     // return the order of the directions of the streets on which the car moves
-    
-    // Find cars with potential oppertunity to move
-    boolean[4] CarsCanMove;
-  }
 
-  public int segmentToPut(Car c, int i){
+    // Mark cars which have potential to move
+    Car[] PotentialCars = new Car[4];
+    if(Car)
+    return;
+  }// carsToMove
+
+  public int segmentToPut(Car car, int inboundDirection){
     // based on the turn signal, current direction (and maybe other related
     // information) of the car, return the direction of the outbound segment 
     // that the car will be put onto as an int
+    int oppositeSegment = (inboundDirection + 2) % 4;
+
+    // 1: right; -1: left; 0: straight
+    int turnSignal = car.getTurnSignal();
+    int segmentToPut = (oppositeSegment - turnSignal);
+
+    // 0: S; 1: E; 2: N; 3: W
+    return segmentToPut;
+  }// segmentToPut
+
+  public void printInformation(){
+    for(int index = 0; index < 4; index++ ){
+      System.out.println("incoming lane having direction "
+                         + convertToSegmentDirection(index)
+                         + " is " + myInboundSeg[index].isEmpty());
+    }// end of for(int index = 0; index < 4; index++ )
+
+    for(int index = 0; index < 4; index++ ){
+      System.out.println("outgoing lane having direction "
+                         + convertToSegmentDirection(index)
+                         + " is " + myOutboundSeg[index].isEmpty());
+    }// end of for(int index = 0; index < 4; index++ )
   }
+
+  private static String convertToSegmentDirection(int segmentDirectionCode) {
+    if (segmentDirectionCode == 2)      return "NORTHWARD";
+    if (segmentDirectionCode == 3)      return "WESTWARD";
+    if (segmentDirectionCode == 0)      return "SOUTHWARD";
+    if (segmentDirectionCode == 1)      return "EASTWARD";
+    return "ILLEGAL segmentDirectionCode!!!";
+  } // convertToSegmentDirection
+
+
 }//Intersection
   
