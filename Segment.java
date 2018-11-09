@@ -13,7 +13,7 @@ public class Segment{
 
   private boolean isEdge;
 
-  public Segment(int capacity, int direction) {
+  public Segment(int capacity, int direction){
     myCapacity = capacity;
     myDirection = direction;
     isEdge = false;
