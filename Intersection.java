@@ -56,6 +56,7 @@ public class Intersection{
     }// end of for (int i : carsToMove)
     */
     printInformation();
+    return;
 
   }// advance
 
