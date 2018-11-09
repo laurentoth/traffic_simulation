@@ -57,6 +57,14 @@ public class Segment{
       return myCapacity;
   } // end of capacity()
 
+  public boolean isEmpty(){
+    if(myCarQueue.size() > 0){
+      return false;
+    } // end of if(myCarQueue.size() > 0)
+
+      return true;
+  }
+
   public String getCarsInfo(){
     return "";
   } // end of getCarsInfo()
