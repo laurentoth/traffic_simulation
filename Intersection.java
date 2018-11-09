@@ -8,7 +8,6 @@
 import java.util.*;
 
 public class Intersection{
-  private Car NorthEast, NorthWest, SouthEast, SouthWest;
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
   
@@ -64,6 +63,14 @@ public class Intersection{
   public void carsToMove(Car c0, Car c1, Car c2, Car c3){
     // based on the traffic rule, 
     // return the order of the directions of the streets on which the car moves
+    Car[] inputCars = { c0, c1, c2, c3 };
+
+    // find which cars have potential to move
+    boolean[] potentialToMove = new boolean[4];
+    potentialToMove[0] = !(myOutboundSeg[segmentToPut(c0, 0)].isFull());
+    potentialToMove[1] = !(myOutboundSeg[segmentToPut(c1, 1)].isFull());
+    potentialToMove[2] = !(myOutboundSeg[segmentToPut(c2, 2)].isFull());
+    potentialToMove[3] = !(myOutboundSeg[segmentToPut(c3, 3)].isFull());
   }// carsToMove
 
   public int segmentToPut(Car car, int inboundDirection){
