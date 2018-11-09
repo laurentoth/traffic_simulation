@@ -47,7 +47,7 @@ public class Intersection{
 
     /* returns the order of directions from which car will go
     ArrayList<Integer> carsToMove = carsToMove(c0, c1, c2, c3);
-    for(int i : carsToMove){
+    for(int i : carsToMove) {
       Car headCar = myInboundSeg[i].removeHeadCar();
 
       // need to worry about the turns
@@ -65,18 +65,11 @@ public class Intersection{
     // return the order of the directions of the streets on which the car moves
   }// carsToMove
 
-  public int segmentToPut(Car car, int inboundDirection){
+  public int segmentToPut(Car c, int i){
     // based on the turn signal, current direction (and maybe other related
     // information) of the car, return the direction of the outbound segment 
     // that the car will be put onto as an int
-    int oppositeSegment = (inboundDirection + 2) % 4;
-
-    // 1: right; -1: left; 0: straight
-    int turnSignal = car.getTurnSignal();
-    int segmentToPut = (oppositeSegment - turnSignal);
-
-    // 0: S; 1: E; 2: N; 3: W
-    return segmentToPut;
+    return 0;
   }// segmentToPut
 
   private void printInformation(){
