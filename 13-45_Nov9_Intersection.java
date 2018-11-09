@@ -70,8 +70,7 @@ public class Intersection{
       potentialToMove[CarDir] = 
           !(myOutboundSeg[segmentToPut(inputCars[CarDir], CarDir)].isFull());
     
-    //for(int CarDir = 0; CarDir < 4; ++CarDir)
-    //  potentialToMove[CarDir]
+    
   }// carsToMove
 
   public int segmentToPut(Car car, int inboundDirection){
@@ -118,7 +117,7 @@ public class Intersection{
                          + convertToSegmentDirection(index)
                          + " is " + empty);
     }// end of for(int index = 0; index < 4; index++ )
-  }// end of printInformation()
+  }
 
   private static String convertToSegmentDirection(int segmentDirectionCode){
     if (segmentDirectionCode == 2)      return "NORTHWARD";
@@ -126,7 +125,7 @@ public class Intersection{
     if (segmentDirectionCode == 0)      return "SOUTHWARD";
     if (segmentDirectionCode == 1)      return "EASTWARD";
     return "ILLEGAL segmentDirectionCode!!!";
-  } // end of convertToSegmentDirection
+  } // convertToSegmentDirection
 
 
 }//Intersection
