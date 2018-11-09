@@ -58,7 +58,7 @@ public class Intersection{
       int outboundSegment = segmentToPut(c, i);
       myOutboundSeg[outboundSegment].putCar(headCar);
     }// end of for (int i : carsToMove)
-
+    printInformation();
   }// advance
 
 
@@ -75,7 +75,7 @@ public class Intersection{
     return 0;
   }// segmentToPut
 
-  public void printInformation(){
+  private void printInformation(){
     for(int index = 0; index < 4; index++ ){
       System.out.println("incoming lane having direction "
                          + convertToSegmentDirection(index)
