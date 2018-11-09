@@ -62,7 +62,9 @@ public class Intersection{
   public ArrayList<Interger> carsToMove(Car c0, Car c1, Car c2, Car c3){
     // based on the traffic rule, 
     // return the order of the directions of the streets on which the car moves
-
+    
+    // Find cars with potential oppertunity to move
+    boolean[4] CarsCanMove;
   }
 
   public int segmentToPut(Car c, int i){
