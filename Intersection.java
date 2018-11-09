@@ -13,10 +13,6 @@ public class Intersection{
   private Segment [] myOutboundSeg;
   
   public Intersection(){
-    NorthEast = new Car;
-    NorthWest = new Car;
-    SouthEast = new Car;
-    SouthWest = new Car;
 
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
@@ -55,7 +51,7 @@ public class Intersection{
       Car headCar = myInboundSeg[i].removeHeadCar();
 
       // need to worry about the turns
-      int outboundSegment = segmentToPut(c, i);
+      int outboundSegment = segmentToPut(headCar, i);
       myOutboundSeg[outboundSegment].putCar(headCar);
     }// end of for (int i : carsToMove)
     printInformation();
@@ -65,7 +61,6 @@ public class Intersection{
   public ArrayList<Integer> carsToMove(Car c0, Car c1, Car c2, Car c3){
     // based on the traffic rule, 
     // return the order of the directions of the streets on which the car moves
-    return;
   }// carsToMove
 
   public int segmentToPut(Car c, int i){
@@ -89,7 +84,7 @@ public class Intersection{
     }// end of for(int index = 0; index < 4; index++ )
   }
 
-  private static String convertToSegmentDirection(int segmentDirectionCode) {
+  private static String convertToSegmentDirection(int segmentDirectionCode){
     if (segmentDirectionCode == 2)      return "NORTHWARD";
     if (segmentDirectionCode == 3)      return "WESTWARD";
     if (segmentDirectionCode == 0)      return "SOUTHWARD";
