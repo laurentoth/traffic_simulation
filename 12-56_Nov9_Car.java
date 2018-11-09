@@ -14,12 +14,12 @@ public class Car{
   private int myTurnSignal;      // 1: right; -1: left; 0: straight
   private int myTimeOnGrid;      // total time an instance has stayed in Grid
 
-  public Car(int carID,
-             int r,
-             int c,
-             int direction,
-             int blocks,
-             int turn){
+  public Car (int carID,
+              int r,
+              int c,
+              int direction,
+              int blocks,
+              int turn){
     myID = carID;
     myRow = r;
     myCol = c;
@@ -30,7 +30,7 @@ public class Car{
   } // end of constructor of Car class
 
 
-  public int getTurnSignal(){
+  public int getTurnSignal (){
     if (myNumBlocksBeforeTurning == 0) {
       return myTurnSignal;
     }  // end of if (the number of blocks until turning for the instance 
@@ -39,15 +39,11 @@ public class Car{
     return 0;    // if myNumBlocksBeforeTurning != 0, go straight
   }  // end of getTurnSignal()
 
-  public int getID(){
-    return myID;
-  }
-
-  public void advanceOneTimeUnit(){
+  public void advanceOneTimeUnit (){
     myTimeOnGrid++;
   }  // end of advanceOneTimeUnit()
 
-  public void passOneBlock(){
+  public void passOneBlock (){
     myNumBlocksBeforeTurning--;
   }  // end of passOneBlock()
 }

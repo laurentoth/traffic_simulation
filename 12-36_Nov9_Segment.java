@@ -4,6 +4,7 @@
 // **** Segment
 // *****************************************************************************
 // *****************************************************************************
+import java.util.*;
 
 public class Segment{
   private Queue<Car> myCarQueue;
@@ -30,39 +31,33 @@ public class Segment{
     return isEdge;
   }//getIsEdge
 
-  public boolean putCar(Car car)
-  {
-    if(myCarQueue.size() < myCapacity)
-    {
+  public boolean putCar(Car car){
+    if(myCarQueue.size() < myCapacity){
         myCarQueue.add(car);
         return true;
     } // end of if(myCarQueue.size() < myCapacity)
     return false;
   }
 
-  public boolean putNewCar()
-  {
+  public boolean putNewCar(){
     Car car = new Car();
     return putCar(car);
   } // end of putNewCar()
 
-  public Car getHeadCar()
-  {
+  public Car getHeadCar(){
     return myCarQueue.peek();
   } // end of getHeadCar()
 
-  public Car removeHeadCar()
-  {
+  public Car removeHeadCar(){
     return myCarQueue.poll();
   } // end of removeHeadCar()
 
-  public int capacity()
-  {
+
+  public int capacity(){
       return myCapacity;
   } // end of capacity()
 
-  public string getCarsInfo()
-  {
+  public string getCarsInfo(){
 
   } // end of getCarsInfo()
 
