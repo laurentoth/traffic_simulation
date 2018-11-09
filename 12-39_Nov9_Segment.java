@@ -18,7 +18,7 @@ public class Segment{
     myDirection = direction;
     isEdge = false;
 
-    myCarQueue = new LinkedList<Car>();
+    myCarQueue = new Queue<Car>();
   }//end of Segment Constructor
 
   public void setIsEdge(boolean b){
@@ -37,6 +37,11 @@ public class Segment{
     } // end of if(myCarQueue.size() < myCapacity)
     return false;
   }
+
+  public boolean putNewCar(){
+    Car car = new Car();
+    return putCar(car);
+  } // end of putNewCar()
 
   public Car getHeadCar(){
     return myCarQueue.peek();
@@ -57,8 +62,8 @@ public class Segment{
       return myCapacity;
   } // end of capacity()
 
-  public String getCarsInfo(){
-    return "";
+  public string getCarsInfo(){
+
   } // end of getCarsInfo()
 
 }//end of Segment
