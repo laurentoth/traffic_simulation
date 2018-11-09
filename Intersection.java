@@ -6,10 +6,16 @@
 // *****************************************************************************
 
 public class Intersection{
+  private Car NorthEast, NorthWest, SouthEast, SouthWest;
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
   
   public Intersection(){
+    NorthEast = new Car;
+    NorthWest = new Car;
+    SouthEast = new Car;
+    SouthWest = new Car;
+
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
   }//Intersection Constructor  
@@ -32,7 +38,7 @@ public class Intersection{
 
   public boolean putCarIntoSegment(Car car, int direction){
     myInboundSeg[direction].putCar(car);
-  }
+  } // end of putCarIntoSegment
 
   public void advance(){
     Car c0, c1, c2, c3;
@@ -44,26 +50,25 @@ public class Intersection{
     // returns the order of directions from which car will go
     ArrayList<Integer> carsToMove = carsToMove(c0, c1, c2, c3);
     for (int i : carsToMove) {
-      Car c = myInboundSeg[i].removeHeadCar();
+      Car headCar = myInboundSeg[i].removeHeadCar();
 
       // need to worry about the turns
-      int j = segmentToPut(c, i);
+      int outboundSegment = segmentToPut(c, i);
 
-      myOutbound[j].putCar(c);
+      myOutbound[outboundSegment].putCar(headCar);
     }
   }
 
   public ArrayList<Interger> carsToMove(Car c0, Car c1, Car c2, Car c3){
     // based on the traffic rule, 
     // return the order of the directions of the streets on which the car moves
-    
+
   }
 
   public int segmentToPut(Car c, int i){
-    // based on the turn signal, current direction(and potentially other related
+    // based on the turn signal, current direction (and maybe other related
     // information) of the car, return the direction of the outbound segment 
     // that the car will be put onto as an int
   }
-}
 }//Intersection
   
