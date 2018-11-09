@@ -66,10 +66,11 @@ public class Intersection{
 
     // find which cars have potential to move
     boolean[] potentialToMove = new boolean[4];
-    potentialToMove[0] = !(myOutboundSeg[segmentToPut(c0, 0)].isFull());
-    potentialToMove[1] = !(myOutboundSeg[segmentToPut(c1, 1)].isFull());
-    potentialToMove[2] = !(myOutboundSeg[segmentToPut(c2, 2)].isFull());
-    potentialToMove[3] = !(myOutboundSeg[segmentToPut(c3, 3)].isFull());
+    for(int CarDir = 0; CarDir < 4; ++CarDir)
+      potentialToMove[CarDir] = 
+          !(myOutboundSeg[segmentToPut(inputCars[CarDir], CarDir)].isFull());
+    
+    
   }// carsToMove
 
   public int segmentToPut(Car car, int inboundDirection){
