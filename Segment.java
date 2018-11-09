@@ -19,7 +19,7 @@ public class Segment{
     isEdge = false;
 
     myCarQueue = new Queue<Car>();
-  }//Segment Constructor
+  }//end of Segment Constructor
 
   public void setIsEdge(boolean b){
     isEdge = b;
@@ -36,7 +36,7 @@ public class Segment{
     {
         myCarQueue.add(car);
         return true;
-    }
+    } // end of if(myCarQueue.size() < myCapacity)
     return false;
   }
 
@@ -44,26 +44,26 @@ public class Segment{
   {
     Car car = new Car();
     return putCar(car);
-  }
+  } // end of putNewCar()
 
   public Car getHeadCar()
   {
     return myCarQueue.peek();
-  }
+  } // end of getHeadCar()
 
   public Car removeHeadCar()
   {
     return myCarQueue.poll();
-  }
+  } // end of removeHeadCar()
 
   public int capacity()
   {
       return myCapacity;
-  }
+  } // end of capacity()
 
-  public void getCarsInfo()
+  public string getCarsInfo()
   {
 
-  }
+  } // end of getCarsInfo()
 
-}//Segment
+}//end of Segment
