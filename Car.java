@@ -43,6 +43,18 @@ public class Car{
     return myID;
   }
 
+  public int getCurrentRow(){
+    return myRow;
+  }
+
+  public int getCurrentCol(){
+    return myCol;
+  }
+
+  public int getCurrentDirection(){
+    return mySegDirection;
+  }
+
   public void advanceOneTimeUnit(){
     myTimeOnGrid++;
   }  // end of advanceOneTimeUnit()
