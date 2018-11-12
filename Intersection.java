@@ -20,11 +20,11 @@ public class Intersection{
 
   public void setInbound(Segment sg, int i){
     myInboundSeg[i] = sg;
-  }//setInbound
+  } // end of setInbound
 
   public void setOutbound(Segment sg, int i){
     myOutboundSeg[i] = sg;
-  }//setOutbound
+  } // end of setOutbound
 
   public Segment getInbound(int i){
     return myInboundSeg[i];
@@ -67,13 +67,28 @@ public class Intersection{
     Car[] inputCars = { c0, c1, c2, c3 };
 
     // find which cars have potential to move
+    int numPotential = 0;
     boolean[] potentialToMove = new boolean[4];
-    for(int CarDir = 0; CarDir < 4; ++CarDir)
+    for(int CarDir = 0; CarDir < 4; ++CarDir){
       potentialToMove[CarDir] = 
           !(myOutboundSeg[segmentToPut(inputCars[CarDir], CarDir)].isFull());
     
-    //for(int CarDir = 0; CarDir < 4; ++CarDir)
-    //  potentialToMove[CarDir]
+      if(potentialToMove[CarDir])
+        ++numPotential;
+    } // end of for(int CarDir = 0; CarDir < 4; ++CarDir)
+
+    if(numPotential <= 1){
+      Car potential;
+      for(int CarDir = 0; CarDir < 4; ++CarDir)
+        if(potentialToMove[CarDir])
+          potential = inputCars[CarDir];
+
+      
+    } // end of if(numPotential <= 1)
+    else{
+
+    } // end of else
+      
   }// carsToMove
 
   public int segmentToPut(Car car, int inboundDirection){
