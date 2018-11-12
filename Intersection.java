@@ -81,11 +81,7 @@ public class Intersection{
     printInformation();
     return;
 
-<<<<<<< HEAD
-  } // advance
-=======
   } //end of advance
->>>>>>> bc1f8c01e49e2b43fd3f89cc8d1c5c46da30e12f
 
 
   public void carsToMove(Car c0, Car c1, Car c2, Car c3){
