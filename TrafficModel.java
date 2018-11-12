@@ -47,7 +47,6 @@ public class TrafficModel {
       intersection[tempRow][tempCol].putCarIntoSegment(carArray[index],
                                                        direction);
     }
-
     return;
   } // end of placeCar
 
