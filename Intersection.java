@@ -62,13 +62,15 @@ public class Intersection{
     printInformation();
     return;
 
-  }// advance
+  } // advance
 
 
   public void carsToMove(Car c0, Car c1, Car c2, Car c3){
     // based on the traffic rule, 
     // return the order of the directions of the streets on which the car moves
     Car[] inputCars = { c0, c1, c2, c3 };
+
+    Queue<Car> resultToMove = new Queue<Car>;
 
     // find which cars have potential to move
     int numPotential = 0;
@@ -87,11 +89,22 @@ public class Intersection{
         if(potentialToMove[CarDir])
           potential = inputCars[CarDir];
 
-      
+      // assuming NO cars in intersection
+      resultToMove.add(potential);
     } // end of if(numPotential <= 1)
     else{
-
+      // Add cars going S, then R, then L; prioritizing S E N W
+      // this deals with contention implicitly
+      for(int turnSignal = 1; turnSignal < 3; ++turnSignal){
+        for(int CarDir = 0; CarDir < 4; ++CarDir){
+          if(potentialToMove[CarDir])
+            if(inputCars[CarDir].getTurnSignal() == ((turnSignal % 2) - 1))
+              resultToMove.add(inputCars[CarDir]);
+        } // end of for(int CarDir = 0; CarDir < 4; ++CarDir)
+      } // end of for(int turnSignal = 0; turnSignal < 3; ++turnSignal)
     } // end of else
+
+    return resultToMove;
       
   }// carsToMove
 
