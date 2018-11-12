@@ -6,8 +6,7 @@
 // *****************************************************************************
 import java.util.*;
 public class Segment{
-
-  private Queue<Car> myCarQueue;
+  private LinkedList<Car> myCarQueue;
 
   private int myCapacity;
   private int myDirection;

@@ -41,19 +41,19 @@ public class Car{
 
   public int getID(){
     return myID;
-  }
+  } // end of getID
 
   public int getCurrentRow(){
     return myRow;
-  }
+  } // end of getCurrentRow
 
   public int getCurrentCol(){
     return myCol;
-  }
+  } // end of getCurrentCol
 
   public int getCurrentDirection(){
     return mySegDirection;
-  }
+  } // end of getCurrentDirection
 
   public void advanceOneTimeUnit(){
     myTimeOnGrid++;
@@ -62,4 +62,8 @@ public class Car{
   public void passOneBlock(){
     myNumBlocksBeforeTurning--;
   }  // end of passOneBlock()
+
+  public int getTimeOnGrid(){
+    return myTimeOnGrid;
+  } // end of getTimeOnGrid
 }
