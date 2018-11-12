@@ -8,6 +8,7 @@
 import java.util.*;
 
 public class Intersection{
+
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
   
@@ -15,7 +16,7 @@ public class Intersection{
 
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
-  }//Intersection Constructor  
+  }// end of Intersection Constructor  
 
   public void setInbound(Segment sg, int i){
     myInboundSeg[i] = sg;
