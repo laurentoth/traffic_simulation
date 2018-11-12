@@ -21,23 +21,23 @@ public class Intersection{
 
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
-  }// end of Intersection Constructor  
+  } // end of Intersection Constructor  
 
   public void setInbound(Segment sg, int i){
     myInboundSeg[i] = sg;
-  }//setInbound
+  } // end of setInbound
 
   public void setOutbound(Segment sg, int i){
     myOutboundSeg[i] = sg;
-  }//setOutbound
+  } // end of setOutbound
 
   public Segment getInbound(int i){
     return myInboundSeg[i];
-  }//getInbound
+  } // end of getInbound
 
   public Segment getOutbound(int i){
     return myOutboundSeg[i];
-  }//getOutbound
+  } // end of getOutbound
 
   public void putCarIntoSegment(Car car, int direction){
     myInboundSeg[direction].putCar(car);
@@ -67,7 +67,7 @@ public class Intersection{
     printInformation();
     return;
 
-  }// advance
+  } //end of advance
 
 
   public void carsToMove(Car c0, Car c1, Car c2, Car c3){
@@ -83,7 +83,7 @@ public class Intersection{
     
     //for(int CarDir = 0; CarDir < 4; ++CarDir)
     //  potentialToMove[CarDir]
-  }// carsToMove
+  } // end of carsToMove
 
   public int segmentToPut(Car car, int inboundDirection){
     // based on the turn signal, current direction (and maybe other related
@@ -97,7 +97,7 @@ public class Intersection{
 
     // 0: S; 1: E; 2: N; 3: W
     return segmentToPut;
-  }// segmentToPut
+  } //end of segmentToPut
 
   private void printInformation(){
     String empty;
@@ -140,5 +140,5 @@ public class Intersection{
   } // end of convertToSegmentDirection
 
 
-}//Intersection
+} // end of Intersection Class
   

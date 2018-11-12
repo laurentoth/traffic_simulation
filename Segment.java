@@ -55,9 +55,9 @@ public class Segment{
   } // end of removeHeadCar
 
   public boolean isFull(){
-    if (myCarQueue.size() == myCapacity){
+    if(myCarQueue.size() == myCapacity){
       return true;
-    } // end of if (the capacity of the Segment instance is reached)
+    } // end of if(the capacity of the Segment instance is reached)
     return false;
   } // end of isFull
 
