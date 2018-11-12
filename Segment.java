@@ -42,11 +42,9 @@ public class Segment{
   public void advanceCarTimeOnGrid(){
     Iterator<Car> queueIterator = myCarQueue.iterator();
     while(queueIterator.hasNext()){
-      Car c = queueIterator.next();
-      c.advanceOneTimeUnit();
-      System.out.println("Car time on grid: " + c.getTimeOnGrid());
-    }
-  }
+      queueIterator.next().advanceOneTimeUnit();
+    } // end of while(queueIterator.hasNext())
+  } // end of advanceCarTimeOnGrid
 
   public Car getHeadCar(){
     return myCarQueue.peek();
