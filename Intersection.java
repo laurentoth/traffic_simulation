@@ -62,6 +62,20 @@ public class Intersection{
       // need to worry about the turns
       int outboundSegment = segmentToPut(headCar, i);
       myOutboundSeg[outboundSegment].putCar(headCar);
+      System.out.print("car#" + headCar.getID() + " is removed and placed 
+        into outgoing lane having direction ");
+      String direc;
+      switch (outboundSegment) {
+        case 0: direc = "SOUTHWARD";
+                break;
+        case 1: direc = "EASTWARD";
+                break;
+        case 2: direc = "NORTHWARD";
+                break;
+        case 3: direc = "WESTWARD";
+                break;
+      } // end of switch(outboundSegment)
+      System.out.println(direc);
     }// end of for (int i : carsToMove)
     */
     printInformation();
