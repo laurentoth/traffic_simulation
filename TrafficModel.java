@@ -47,7 +47,6 @@ public class TrafficModel {
       intersection[tempRow][tempCol].putCarIntoSegment(carArray[index],
                                                        direction);
     }
-
     return;
   } // end of placeCar
 
@@ -58,6 +57,7 @@ public class TrafficModel {
           System.out.println("At the intersection located at col "
                              + col + " and row " + row);
           intersection[row][col].advance();
+          System.out.println();
         } // end for(int col = 1; col < (numIntersectionsInOneDirection + 1)...)
       } // end for(int row = 1; row < (numIntersectionsInOneDirection + 1)...)
     } // end for(int time = 0; time < simulationTime; time++)

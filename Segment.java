@@ -42,11 +42,9 @@ public class Segment{
   public void advanceCarTimeOnGrid(){
     Iterator<Car> queueIterator = myCarQueue.iterator();
     while(queueIterator.hasNext()){
-      Car c = queueIterator.next();
-      c.advanceOneTimeUnit();
-      System.out.println("Car time on grid: " + c.getTimeOnGrid());
-    }
-  }
+      queueIterator.next().advanceOneTimeUnit();
+    } // end of while(queueIterator.hasNext())
+  } // end of advanceCarTimeOnGrid
 
   public Car getHeadCar(){
     return myCarQueue.peek();
@@ -57,9 +55,9 @@ public class Segment{
   } // end of removeHeadCar
 
   public boolean isFull(){
-    if (myCarQueue.size() == myCapacity){
+    if(myCarQueue.size() == myCapacity){
       return true;
-    } // end of if (the capacity of the Segment instance is reached)
+    } // end of if(the capacity of the Segment instance is reached)
     return false;
   } // end of isFull
 

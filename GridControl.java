@@ -66,7 +66,7 @@ public class GridControl{
           Segment sg = new Segment(SEGMENT_CAPACITY, N);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, N);
-        }
+        } // end of if(row + 1 < numIntersections) else ...
 
         if(col - 1 > 0){
           intersection[row][col].setOutbound(
@@ -76,7 +76,7 @@ public class GridControl{
           Segment sg = new Segment(SEGMENT_CAPACITY, W);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, W);
-        }
+        } // end of if(col - 1 > 0) else ...
 
         if(row - 1 > 0){
           intersection[row][col].setOutbound(
@@ -86,7 +86,7 @@ public class GridControl{
           Segment sg = new Segment(SEGMENT_CAPACITY, S);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, S);
-        }
+        } // end of if(row - 1 > 0) else ...
 
         if(col + 1 < numIntersections){
           intersection[row][col].setOutbound(
@@ -96,13 +96,13 @@ public class GridControl{
           Segment sg = new Segment(SEGMENT_CAPACITY, E);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, E);
-        }
+        } // end of if(col + 1 < numIntersections) else... 
       } // end of for (int col = 0; col < numIntersections; col++)
     } // end of for (int row = 0; row < numIntersections; row++)
   } // end of setOutboundSegment
 
   public Intersection[][] getIntersections(){
     return intersection;
-  } // getIntersections
+  } // end of getIntersections
 
-} //end of GridControl
+} //end of GridControl class

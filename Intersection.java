@@ -11,12 +11,17 @@ public class Intersection{
 
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
-  
+  private final int S = 0;
+  private final int E = 1;
+  private final int N = 2;
+  private final int W = 3;
+
+
   public Intersection(){
 
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
-  }// end of Intersection Constructor  
+  } // end of Intersection Constructor  
 
   public void setInbound(Segment sg, int i){
     myInboundSeg[i] = sg;
@@ -28,11 +33,11 @@ public class Intersection{
 
   public Segment getInbound(int i){
     return myInboundSeg[i];
-  }//getInbound
+  } // end of getInbound
 
   public Segment getOutbound(int i){
     return myOutboundSeg[i];
-  }//getOutbound
+  } // end of getOutbound
 
   public void putCarIntoSegment(Car car, int direction){
     myInboundSeg[direction].putCar(car);
@@ -57,12 +62,30 @@ public class Intersection{
       // need to worry about the turns
       int outboundSegment = segmentToPut(headCar, i);
       myOutboundSeg[outboundSegment].putCar(headCar);
+      System.out.print("car#" + headCar.getID() + " is removed and placed 
+        into outgoing lane having direction ");
+      String direc;
+      switch (outboundSegment) {
+        case 0: direc = "SOUTHWARD";
+                break;
+        case 1: direc = "EASTWARD";
+                break;
+        case 2: direc = "NORTHWARD";
+                break;
+        case 3: direc = "WESTWARD";
+                break;
+      } // end of switch(outboundSegment)
+      System.out.println(direc);
     }// end of for (int i : carsToMove)
     */
     printInformation();
     return;
 
+<<<<<<< HEAD
   } // advance
+=======
+  } //end of advance
+>>>>>>> bc1f8c01e49e2b43fd3f89cc8d1c5c46da30e12f
 
 
   public void carsToMove(Car c0, Car c1, Car c2, Car c3){
@@ -120,7 +143,7 @@ public class Intersection{
 
     // 0: S; 1: E; 2: N; 3: W
     return segmentToPut;
-  }// segmentToPut
+  } //end of segmentToPut
 
   private void printInformation(){
     String empty;
@@ -163,5 +186,5 @@ public class Intersection{
   } // end of convertToSegmentDirection
 
 
-}//Intersection
+} // end of Intersection Class
   
