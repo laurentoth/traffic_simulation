@@ -21,7 +21,7 @@ public class TrafficModel {
     gc = new GridControl(numIntersectionsInOneDirection);
     intersection = gc.getIntersections();
     simulationTime = 2; //for now
-  }//end of TrafficModel Constructor
+  } //end of TrafficModel Constructor
 
   public void addCar(int carID,
                      int row,
@@ -37,7 +37,7 @@ public class TrafficModel {
                                 numBlocksBeforeTurning,
                                 turnDirectionCode);
     return;
-  }// end of addCar
+  } // end of addCar
 
   public void placeCar(){
     for(int index = 0; index < carArray.length; index++){
@@ -49,7 +49,7 @@ public class TrafficModel {
     }
 
     return;
-  }//end of placeCar
+  } // end of placeCar
 
   public void startSimulation(){
     for(int time = 0; time < simulationTime; time++){
@@ -58,9 +58,9 @@ public class TrafficModel {
           System.out.println("At the intersection located at col "
                              + col + " and row " + row);
           intersection[row][col].advance();
-        }//end of(int col = 1; col < (numIntersectionsInOneDirection + 1);col++)
-      }//end of (int row = 1; row < (numIntersectionsInOneDirection + 1); row++)
-    }//end of (int time = 0; time < simulationTime; time++)
+        } // end for(int col = 1; col < (numIntersectionsInOneDirection + 1)...)
+      } // end for(int row = 1; row < (numIntersectionsInOneDirection + 1)...)
+    } // end for(int time = 0; time < simulationTime; time++)
     return;
-  }//end of startSimulation
-}//end of TrafficModel
+  } // end of startSimulation
+} // end of TrafficModel
