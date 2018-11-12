@@ -29,7 +29,7 @@ public class GridControl{
       direction++;
       if(direction == 4)
         direction = 0;
-    } // end of for (int x = 0; x < segment.length; x++)
+    } // end of for (int index = 0; index < segment.length; index++)
 
 
     for (int row = 1; row < numIntersections; row++){
