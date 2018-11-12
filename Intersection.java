@@ -11,7 +11,12 @@ public class Intersection{
 
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
-  
+  private final int S = 0;
+  private final int E = 1;
+  private final int N = 2;
+  private final int W = 3;
+
+
   public Intersection(){
 
     myInboundSeg = new Segment[4];
