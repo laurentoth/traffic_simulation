@@ -102,6 +102,7 @@ public class Intersection{
         ++numPotential;
     } // end of for(int CarDir = 0; CarDir < 4; ++CarDir)
 
+    /*
     if(numPotential <= 1){
       int potential = -1;
       for(int CarDir = 0; CarDir < 4; ++CarDir)
@@ -117,7 +118,7 @@ public class Intersection{
       // --- FOR FUTURE USE ---
       // Add cars going S, then R, then L; prioritizing S E N W
       // this deals with contention implicitly
-      /*for(int turnSignal = 1; turnSignal < 3; ++turnSignal){
+      for(int turnSignal = 1; turnSignal < 3; ++turnSignal){
         for(int CarDir = 0; CarDir < 4; ++CarDir){
           if(potentialToMove[CarDir])
             if(inputCars[CarDir].getTurnSignal() == ((turnSignal % 2) - 1))
