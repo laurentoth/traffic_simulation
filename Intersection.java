@@ -113,15 +113,17 @@ public class Intersection{
         resultToMove.add(potential);
     } // end of if(numPotential <= 1)
     else{
+
+      // --- FOR FUTURE USE ---
       // Add cars going S, then R, then L; prioritizing S E N W
       // this deals with contention implicitly
-      for(int turnSignal = 1; turnSignal < 3; ++turnSignal){
+      /*for(int turnSignal = 1; turnSignal < 3; ++turnSignal){
         for(int CarDir = 0; CarDir < 4; ++CarDir){
           if(potentialToMove[CarDir])
             if(inputCars[CarDir].getTurnSignal() == ((turnSignal % 2) - 1))
               resultToMove.add(CarDir);
         } // end of for(int CarDir = 0; CarDir < 4; ++CarDir)
-      } // end of for(int turnSignal = 0; turnSignal < 3; ++turnSignal)
+      }*/ // end of for(int turnSignal = 0; turnSignal < 3; ++turnSignal)
     } // end of else
 
     return resultToMove;
