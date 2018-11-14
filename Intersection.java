@@ -84,13 +84,17 @@ public class Intersection{
     // based on the turn signal, current direction (and maybe other related
     // information) of the car, return the direction of the outbound segment 
     // that the car will be put onto as an int
-    int oppositeSegment = (inboundDirection + 2) % 4;
-
     // 1: right; -1: left; 0: straight
     int turnSignal = car.getTurnSignal();
-    int segmentToPut = (oppositeSegment - turnSignal + 4) % 4;
-
-    return segmentToPut;
+    if(turnSignal == 0){
+      return inboundDirection;
+    }
+    else if(turnSignal == -1){
+      return inboundDirection + 1;
+    }
+    else{
+      return inboundDirection - 1;
+    }
   } //end of segmentToPut
 
   private boolean isEdgeOutseg(int outsegInd){
