@@ -63,7 +63,7 @@ public class Intersection{
 
       if(headCar == null){
         continue;
-      }// end of if(headCar == null)
+      } // end of if(headCar == null)
 
       int outboundSegment = segmentToPut(headCar, index);
       myOutboundSeg[outboundSegment].putCar(headCar);
@@ -73,11 +73,11 @@ public class Intersection{
       if(isEdgeOutseg(outboundSegment)){
         System.out.println("car#" + headCar.getID() + " leaves the grid");
       } // end of if (isEdgeOutseg(outboundSegment))
-    }// end of for(int index = 0; index < 4; ++index)
+    } // end of for(int index = 0; index < 4; ++index)
 
     printInformation();
     return;
-  } //end of advance
+  } // end of advance
 
   public int segmentToPut(Car car, int inboundDirection){
     // based on the turn signal, current direction (and maybe other related
@@ -110,33 +110,33 @@ public class Intersection{
   private void printInformation(){
     String empty;
 
-    for(int index = 0; index < 4; index++ ){
+    for(int index = 0; index < 4; ++index){
       if(myInboundSeg[index].isEmpty()){
         empty = "empty";
       }
       else{
         empty = "nonempty";
-      }// end of if(myInboundSeg[index].isEmpty())
+      } // end of if(myInboundSeg[index].isEmpty())
 
       System.out.println("incoming lane having direction "
                          + convertToSegmentDirection(index)
                          + " is " + empty);
-    }// end of for(int index = 0; index < 4; index++ )
+    } // end of for(int index = 0; index < 4; ++index)
 
-    for(int index = 0; index < 4; index++ ){
+    for(int index = 0; index < 4; ++index){
 
       if(myOutboundSeg[index].isEmpty()){
         empty = "empty";
       }
       else{
         empty = "nonempty";
-      }// end of if(myOutboundSeg[index].isEmpty())
+      } // end of if(myOutboundSeg[index].isEmpty())
 
       System.out.println("outgoing lane having direction "
                          + convertToSegmentDirection(index)
                          + " is " + empty);
-    }// end of for(int index = 0; index < 4; index++ )
-  }// end of printInformation()
+    } // end of for(int index = 0; index < 4; ++index)
+  } // end of printInformation()
 
   private static String convertToSegmentDirection(int segmentDirectionCode){
     if (segmentDirectionCode == 2)      return "NORTHWARD";
