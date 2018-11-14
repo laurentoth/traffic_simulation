@@ -34,9 +34,7 @@ public class GridControl{
 
     for (int row = 1; row < numIntersections; row++){
       for (int col = 1; col < numIntersections; col++){
-        intersection[row][col] = new Intersection(
-            isInterNorthEdge(row), isInterSouthEdge(row),
-            isInterWestEdge(col),  isInterEastEdge(row));
+        intersection[row][col] = new Intersection();
       } // end of for(int col = 0; col < numIntersections; col++)
     } // end of for(int row = 0; row < numIntersections; row++) 
 
@@ -104,25 +102,25 @@ public class GridControl{
   } // end of setOutboundSegment
 
   private boolean isInterNorthEdge(int row){
-    if (row == 1)
+    if (row == numIntersections)
       return true;
     return false;
   } // end of isInterNorthEdge
 
   private boolean isInterSouthEdge(int row){
-    if (row == numIntersections)
+    if (row == 1)
       return true;
     return false;
   } // end of isInterSouthEdge
   
   private boolean isInterWestEdge(int col){
-    if (col == 1)
+    if (col == numIntersections)
       return true;
     return false;
   } // end of isInterWestEdge
   
   private boolean isInterEastEdge(int col){
-    if (col == numIntersections)
+    if (col == 1)
       return true;
     return false;
   } // end of isInterEastEdge

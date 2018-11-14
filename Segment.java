@@ -30,8 +30,8 @@ public class Segment{
   }// end of getIsEdge
 
   public boolean putCar(Car car){
-        myCarQueue.add(car);
-        return true;
+    myCarQueue.add(car);
+    return true;
   } // end of putCar
 
   public void advanceCarTimeOnGrid(){
@@ -61,7 +61,7 @@ public class Segment{
       return myCapacity;
   } // end of capacity
  */
-  
+
   public boolean isEmpty(){
     if(myCarQueue.size() > 0){
       return false;

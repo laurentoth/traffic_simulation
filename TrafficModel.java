@@ -20,7 +20,7 @@ public class TrafficModel {
     carArray = new Car [numCarsToBegin];
     gc = new GridControl(numIntersectionsInOneDirection);
     intersection = gc.getIntersections();
-    simulationTime = 2; //for now
+    simulationTime = 1; //for now
   } //end of TrafficModel Constructor
 
   public void addCar(int carID,
