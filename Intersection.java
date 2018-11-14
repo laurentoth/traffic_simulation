@@ -80,21 +80,19 @@ public class Intersection{
     return;
   } // end of advance
 
-  public int segmentToPut(Car car, int inboundDirection){
-    // based on the turn signal, current direction (and maybe other related
-    // information) of the car, return the direction of the outbound segment 
-    // that the car will be put onto as an int
-    int oppositeSegment = (inboundDirection + 2) % 4;
-
+  public int segmentToPut(Car car, int direction){
+    // oppositeSegment is equal to direction (opposite faces same direction)
+    // Based on the turn signal and current direction, return the direction
+    // of the outbound segment that the car will be put onto as an int
     // 1: right; -1: left; 0: straight
     int turnSignal = car.getTurnSignal();
-    int segmentToPut = (oppositeSegment - turnSignal + 4) % 4;
+    int segmentToPut = (direction - turnSignal + 4) % 4;
 
     return segmentToPut;
   } // end of segmentToPut
 
   private boolean isEdgeOutseg(int outsegInd){
-    // reutrns true if the outbound segment with the input index is an edge
+    // returns true if the outbound segment with the input index is an edge
     // segment, returns false otherwise
     if(isNorthEdge && outsegInd == N)
       return true;
