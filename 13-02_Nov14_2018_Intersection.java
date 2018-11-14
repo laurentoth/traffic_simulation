@@ -67,10 +67,9 @@ public class Intersection{
 
       int outboundSegment = segmentToPut(headCar, index);
       myOutboundSeg[outboundSegment].putCar(headCar);
-      headCar.passOneBlock();
       System.out.println("  car#" + headCar.getID() + " is removed and placed "
-                         + "into outgoing lane having direction " 
-                         + convertToSegmentDirection(outboundSegment));
+                       + "into outgoing lane having direction " 
+                       + convertToSegmentDirection(outboundSegment));
       if(isEdgeOutseg(outboundSegment)){
         System.out.println("  car#" + headCar.getID() + " leaves the grid");
       } // end of if (isEdgeOutseg(outboundSegment))
@@ -88,10 +87,10 @@ public class Intersection{
 
     // 1: right; -1: left; 0: straight
     int turnSignal = car.getTurnSignal();
-    int segmentToPut = (oppositeSegment - turnSignal + 4) % 4;
+    int segmentToPut = (oppositeSegment - turnSignal);
 
     return segmentToPut;
-  } // end of segmentToPut
+  } //end of segmentToPut
 
   private boolean isEdgeOutseg(int outsegInd){
     // reutrns true if the outbound segment with the input index is an edge

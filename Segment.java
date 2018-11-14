@@ -9,13 +9,11 @@ public class Segment{
 
   private Queue<Car> myCarQueue;
 
-  private int myCapacity;
   private int myDirection;
 
   private boolean isEdge;
 
-  public Segment(int capacity, int direction){
-    myCapacity = capacity;
+  public Segment(int direction){
     myDirection = direction;
     isEdge = false;
 
@@ -32,11 +30,8 @@ public class Segment{
   }// end of getIsEdge
 
   public boolean putCar(Car car){
-    if(myCarQueue.size() < myCapacity){
         myCarQueue.add(car);
         return true;
-    } // end of if(myCarQueue.size() < myCapacity)
-    return false;
   } // end of putCar
 
   public void advanceCarTimeOnGrid(){
@@ -54,6 +49,7 @@ public class Segment{
     return myCarQueue.poll();
   } // end of removeHeadCar
 
+  /* for future use
   public boolean isFull(){
     if(myCarQueue.size() == myCapacity){
       return true;
@@ -64,7 +60,8 @@ public class Segment{
   public int capacity(){
       return myCapacity;
   } // end of capacity
-
+ */
+  
   public boolean isEmpty(){
     if(myCarQueue.size() > 0){
       return false;

@@ -65,7 +65,7 @@ public class GridControl{
             intersection[row + 1][col].getInbound(N), N);
         }
         else{
-          Segment sg = new Segment(N);
+          Segment sg = new Segment(SEGMENT_CAPACITY, N);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, N);
         } // end of if(row + 1 < numIntersections) else ...
@@ -75,7 +75,7 @@ public class GridControl{
             intersection[row][col - 1].getInbound(W), W);
         }
         else{
-          Segment sg = new Segment(W);
+          Segment sg = new Segment(SEGMENT_CAPACITY, W);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, W);
         } // end of if(col - 1 > 0) else ...
@@ -85,7 +85,7 @@ public class GridControl{
             intersection[row - 1][col].getInbound(S), S);
         }
         else {
-          Segment sg = new Segment(S);
+          Segment sg = new Segment(SEGMENT_CAPACITY, S);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, S);
         } // end of if(row - 1 > 0) else ...
@@ -95,7 +95,7 @@ public class GridControl{
             intersection[row][col + 1].getInbound(E), E);
         }
         else {
-          Segment sg = new Segment(E);
+          Segment sg = new Segment(SEGMENT_CAPACITY, E);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, E);
         } // end of if(col + 1 < numIntersections) else... 
@@ -103,25 +103,25 @@ public class GridControl{
     } // end of for (int row = 0; row < numIntersections; row++)
   } // end of setOutboundSegment
 
-  private boolean isInterNorthEdge(int row){
+  private isInterNorthEdge(int row){
     if (row == 1)
       return true;
     return false;
   } // end of isInterNorthEdge
 
-  private boolean isInterSouthEdge(int row){
+  private isInterNorthEdge(int row){
     if (row == numIntersections)
       return true;
     return false;
   } // end of isInterSouthEdge
   
-  private boolean isInterWestEdge(int col){
+  private isInterWestEdge(int col){
     if (col == 1)
       return true;
     return false;
   } // end of isInterWestEdge
   
-  private boolean isInterEastEdge(int col){
+  private isInterEastEdge(int col){
     if (col == numIntersections)
       return true;
     return false;
