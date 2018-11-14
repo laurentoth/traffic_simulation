@@ -67,6 +67,7 @@ public class Intersection{
 
       int outboundSegment = segmentToPut(headCar, index);
       myOutboundSeg[outboundSegment].putCar(headCar);
+      headCar.passOneBlock();
       System.out.print("car#" + headCar.getID() + " is removed and placed " +
                        "into outgoing lane having direction " 
                        + convertToSegmentDirection(outboundSegment));
