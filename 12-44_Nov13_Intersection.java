@@ -155,17 +155,11 @@ public class Intersection{
   private boolean isEdgeOutseg(int outsegInd){
     // reutrns true if the outbound segment with the input index is an edge
     // segment, returns false otherwise
-    if(isNorthEdge && outsegInd == N)
+    if(myRow == 1 && outsegInd == N){
       return true;
-    if(isSouthEdge && outsegInd == S)
-      return true;
-    if(isWestEdge && outsegInd == W)
-      return true;
-    if(isEastEdge && outsegInd == E)
-      return true;
-
-    return false;
-  } // end of isEdgeOutseg
+    }
+    if(myRow == )
+  }
 
   private void printInformation(){
     String empty;
