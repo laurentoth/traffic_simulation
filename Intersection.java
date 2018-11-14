@@ -63,12 +63,12 @@ public class Intersection{
       myOutboundSeg[outboundSegment].putCar(headCar);
       headCar.passOneBlock();
       System.out.println(" and");
-      System.out.println("  car#" + headCar.getID() + " is removed and placed "
+      System.out.println("   car#" + headCar.getID() + " is removed and placed "
                          + "into outgoing lane having direction " 
                          + convertToSegmentDirection(outboundSegment));
 
       if(myOutboundSeg[outboundSegment].getIsEdge()){
-        System.out.println("  car#" + headCar.getID() + " leaves the grid");
+        System.out.println("   car#" + headCar.getID() + " leaves the grid");
       } // end of if (isEdgeOutseg(outboundSegment))
     } // end of for(int index = 0; index < 4; ++index)
 
@@ -131,4 +131,3 @@ public class Intersection{
   } // end of convertToSegmentDirection
 
 } // end of Intersection Class
-  
