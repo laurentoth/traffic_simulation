@@ -49,9 +49,9 @@ public class Intersection{
     c1 = myInboundSeg[1].getHeadCar();
     c2 = myInboundSeg[2].getHeadCar();
     c3 = myInboundSeg[3].getHeadCar();
-    for(int index = 0; index < 4; index++ ){
+    for(int index = 0; index < 4; ++index){
       myInboundSeg[index].advanceCarTimeOnGrid();
-    }
+    } // end of for(int index = 0; index < 4; index++ )
 
 
     // returns the order of directions from which car will go
