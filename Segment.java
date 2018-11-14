@@ -56,12 +56,12 @@ public class Segment{
     } // end of if(the capacity of the Segment instance is reached)
     return false;
   } // end of isFull
- */
-  
+
   public int capacity(){
       return myCapacity;
   } // end of capacity
-
+ */
+  
   public boolean isEmpty(){
     if(myCarQueue.size() > 0){
       return false;
