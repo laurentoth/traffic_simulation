@@ -44,32 +44,91 @@ public class Intersection{
   } // end of putCarIntoSegment
 
   public void advance(){
-
+    Car c0, c1, c2, c3;
+    c0 = myInboundSeg[0].getHeadCar();
+    c1 = myInboundSeg[1].getHeadCar();
+    c2 = myInboundSeg[2].getHeadCar();
+    c3 = myInboundSeg[3].getHeadCar();
     for(int index = 0; index < 4; ++index){
       myInboundSeg[index].advanceCarTimeOnGrid();
     } // end of for(int index = 0; index < 4; index++ )
 
 
-     for(int index = 0; index < 4; ++index){
-      Car headCar = myInboundSeg[index].removeHeadCar();
-
-      if(headCar == null){
-        continue;
-      }// end of if(headCar == null)
+    // returns the order of directions from which car will go
+    ArrayList<Integer> carsToMove = carsToMove(c0, c1, c2, c3);
+    for(int i : carsToMove){
+      Car headCar = myInboundSeg[i].removeHeadCar();
 
       // need to worry about the turns
-      int outboundSegment = segmentToPut(headCar, index);
+      int outboundSegment = segmentToPut(headCar, i);
       myOutboundSeg[outboundSegment].putCar(headCar);
       System.out.print("car#" + headCar.getID() + " is removed and placed " +
-        "into outgoing lane having direction " 
-        + convertToSegmentDirection(outboundSegment));
-    }// end of for(int index = 0; index < 4; ++index)
+        "into outgoing lane having direction ");
+      String direc = "";
+      switch (outboundSegment) {
+        case 0: direc = "SOUTHWARD";
+                break;
+        case 1: direc = "EASTWARD";
+                break;
+        case 2: direc = "NORTHWARD";
+                break;
+        case 3: direc = "WESTWARD";
+                break;
+      } // end of switch(outboundSegment)
+      System.out.println(direc);
+    }// end of for (int i : carsToMove)
 
     printInformation();
     return;
 
   } //end of advance
 
+
+  public ArrayList<Integer> carsToMove(Car c0, Car c1, Car c2, Car c3){
+    // based on the traffic rule, 
+    // return the order of the directions of the streets on which the car moves
+    Car[] inputCars = { c0, c1, c2, c3 };
+
+    ArrayList<Integer> resultToMove = new ArrayList<Integer>();
+
+    // find which cars have potential to move
+    int numPotential = 0;
+    boolean[] potentialToMove = new boolean[4];
+    for(int CarDir = 0; CarDir < 4; ++CarDir){
+      potentialToMove[CarDir] = 
+          !(myOutboundSeg[segmentToPut(inputCars[CarDir], CarDir)].isFull());
+    
+      if(potentialToMove[CarDir])
+        ++numPotential;
+    } // end of for(int CarDir = 0; CarDir < 4; ++CarDir)
+
+    if(numPotential <= 1){
+      int potential = -1;
+      for(int CarDir = 0; CarDir < 4; ++CarDir)
+        if(potentialToMove[CarDir])
+          potential = CarDir;
+
+      // assuming NO cars in intersection
+      if(potential != -1)
+        resultToMove.add(potential);
+    } // end of if(numPotential <= 1)
+    else{
+
+      // --- FOR FUTURE USE ---
+      // Add cars going S, then R, then L; prioritizing S E N W
+      // this deals with contention implicitly
+      /*for(int turnSignal = 1; turnSignal < 3; ++turnSignal){
+        for(int CarDir = 0; CarDir < 4; ++CarDir){
+          if(potentialToMove[CarDir])
+            if(inputCars[CarDir].getTurnSignal() == ((turnSignal % 2) - 1))
+              resultToMove.add(CarDir);
+        } // end of for(int CarDir = 0; CarDir < 4; ++CarDir)
+      }*/ // end of for(int turnSignal = 0; turnSignal < 3; ++turnSignal)
+    } // end of else
+
+    return resultToMove;
+      
+  }// carsToMove
 
   public int segmentToPut(Car car, int inboundDirection){
     // based on the turn signal, current direction (and maybe other related
