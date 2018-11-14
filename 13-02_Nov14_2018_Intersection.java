@@ -87,7 +87,7 @@ public class Intersection{
 
     // 1: right; -1: left; 0: straight
     int turnSignal = car.getTurnSignal();
-    int segmentToPut = (oppositeSegment - turnSignal + 4) % 4;
+    int segmentToPut = (oppositeSegment - turnSignal);
 
     return segmentToPut;
   } //end of segmentToPut
