@@ -90,7 +90,7 @@ public class Intersection{
     int segmentToPut = (oppositeSegment - turnSignal);
 
     return segmentToPut;
-  } //end of segmentToPut
+  } // end of segmentToPut
 
   private boolean isEdgeOutseg(int outsegInd){
     // reutrns true if the outbound segment with the input index is an edge
