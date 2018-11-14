@@ -58,24 +58,22 @@ public class Intersection{
     } // end of for(int index = 0; index < 4; index++ )
 
 
-     for(int index = 0; index < 4; ++index){
+    for(int index = 0; index < 4; ++index){
       Car headCar = myInboundSeg[index].removeHeadCar();
 
       if(headCar == null){
         continue;
       }// end of if(headCar == null)
 
-      // need to worry about the turns
       int outboundSegment = segmentToPut(headCar, index);
       myOutboundSeg[outboundSegment].putCar(headCar);
       System.out.print("car#" + headCar.getID() + " is removed and placed " +
-        "into outgoing lane having direction " 
-        + convertToSegmentDirection(outboundSegment));
+                       "into outgoing lane having direction " 
+                       + convertToSegmentDirection(outboundSegment));
     }// end of for(int index = 0; index < 4; ++index)
 
     printInformation();
     return;
-
   } //end of advance
 
   public int segmentToPut(Car car, int inboundDirection){
@@ -88,7 +86,6 @@ public class Intersection{
     int turnSignal = car.getTurnSignal();
     int segmentToPut = (oppositeSegment - turnSignal);
 
-    // 0: S; 1: E; 2: N; 3: W
     return segmentToPut;
   } //end of segmentToPut
 
@@ -139,7 +136,6 @@ public class Intersection{
     if (segmentDirectionCode == 1)      return "EASTWARD";
     return "ILLEGAL segmentDirectionCode!!!";
   } // end of convertToSegmentDirection
-
 
 } // end of Intersection Class
   
