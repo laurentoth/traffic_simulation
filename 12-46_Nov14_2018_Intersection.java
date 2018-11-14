@@ -9,10 +9,6 @@ import java.util.*;
 
 public class Intersection{
 
-  private boolean isNorthEdge;
-  private boolean isSouthEdge;
-  private boolean isWestEdge;
-  private boolean isEastEdge;
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
   private final int S = 0;
@@ -21,12 +17,8 @@ public class Intersection{
   private final int W = 3;
 
 
-  public Intersection(boolean isNEdge, boolean isSEdge, 
-                      boolean isWEdge, boolean isEEdge){
-    isNorthEdge = isNEdge;
-    isSouthEdge = isSEdge;
-    isWestEdge = isWEdge;
-    isEastEdge = isEEdge;
+  public Intersection(){
+
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
   } // end of Intersection Constructor  
@@ -78,6 +70,7 @@ public class Intersection{
 
   } //end of advance
 
+
   public int segmentToPut(Car car, int inboundDirection){
     // based on the turn signal, current direction (and maybe other related
     // information) of the car, return the direction of the outbound segment 
@@ -91,15 +84,6 @@ public class Intersection{
     // 0: S; 1: E; 2: N; 3: W
     return segmentToPut;
   } //end of segmentToPut
-
-  private boolean isEdgeOutseg(int outsegInd){
-    // reutrns true if the outbound segment with the input index is an edge
-    // segment, returns false otherwise
-    if(myRow == 1 && outsegInd == N){
-      return true;
-    }
-    if(myRow == )
-  }
 
   private void printInformation(){
     String empty;
@@ -117,6 +101,7 @@ public class Intersection{
                          + " is " + empty);
     }// end of for(int index = 0; index < 4; index++ )
 
+    
     for(int index = 0; index < 4; index++ ){
 
       if(myOutboundSeg[index].isEmpty()){
