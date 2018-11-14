@@ -71,6 +71,10 @@ public class Intersection{
       System.out.print("car#" + headCar.getID() + " is removed and placed " +
         "into outgoing lane having direction " 
         + convertToSegmentDirection(outboundSegment));
+      if(isEdgeOutseg(outboundSegment)){
+        System.out.println("car#" + headCar.getID() + " leaves the grid");
+      } // end of if (isEdgeOutseg(outboundSegment))
+
     }// end of for(int index = 0; index < 4; ++index)
 
     printInformation();
