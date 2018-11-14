@@ -21,12 +21,7 @@ public class Intersection{
   private final int W = 3;
 
 
-  public Intersection(boolean isNEdge, boolean isSEdge, 
-                      boolean isWEdge, boolean isEEdge){
-    isNorthEdge = isNEdge;
-    isSouthEdge = isSEdge;
-    isWestEdge = isWEdge;
-    isEastEdge = isEEdge;
+  public Intersection(){
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
   } // end of Intersection Constructor  
