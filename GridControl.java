@@ -34,7 +34,7 @@ public class GridControl{
 
     for (int row = 1; row < numIntersections; row++){
       for (int col = 1; col < numIntersections; col++){
-        intersection[row][col] = new Intersection();
+        intersection[row][col] = new Intersection(row, col);
       } // end of for(int col = 0; col < numIntersections; col++)
     } // end of for(int row = 0; row < numIntersections; row++) 
 
@@ -100,6 +100,11 @@ public class GridControl{
       } // end of for (int col = 0; col < numIntersections; col++)
     } // end of for (int row = 0; row < numIntersections; row++)
   } // end of setOutboundSegment
+
+  // return -1 if the intersection
+  private int isInterscEdge(int row, int col){
+  
+  }
 
   public Intersection[][] getIntersections(){
     return intersection;

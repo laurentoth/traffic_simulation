@@ -9,6 +9,8 @@ import java.util.*;
 
 public class Intersection{
 
+  private int myRow;
+  private int myCol;
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
   private final int S = 0;
@@ -17,8 +19,9 @@ public class Intersection{
   private final int W = 3;
 
 
-  public Intersection(){
-
+  public Intersection(int row, int col){
+    myRow = row;
+    myCol = col;
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
   } // end of Intersection Constructor  
@@ -96,7 +99,7 @@ public class Intersection{
     boolean[] potentialToMove = new boolean[4];
     for(int CarDir = 0; CarDir < 4; ++CarDir){
       potentialToMove[CarDir] = 
-          !(myOutboundSeg[segmentToPut(inputCars[CarDir], CarDir)].isFull());
+        !(myOutboundSeg[segmentToPut(inputCars[CarDir], CarDir)].isFull());
     
       if(potentialToMove[CarDir])
         ++numPotential;
@@ -141,6 +144,15 @@ public class Intersection{
     return segmentToPut;
   } //end of segmentToPut
 
+  private boolean isEdgeOutseg(int outsegInd){
+    // reutrns true if the outbound segment with the input index is an edge
+    // segment, returns false otherwise
+    if(myRow == 1 && outsegInd == N){
+      return true;
+    }
+    if(myRow == )
+  }
+
   private void printInformation(){
     String empty;
 
@@ -157,7 +169,6 @@ public class Intersection{
                          + " is " + empty);
     }// end of for(int index = 0; index < 4; index++ )
 
-    
     for(int index = 0; index < 4; index++ ){
 
       if(myOutboundSeg[index].isEmpty()){
