@@ -62,9 +62,9 @@ public class Intersection{
       // need to worry about the turns
       int outboundSegment = segmentToPut(headCar, i);
       myOutboundSeg[outboundSegment].putCar(headCar);
-      System.out.print("car#" + headCar.getID() + " is removed and placed 
-        into outgoing lane having direction ");
-      String direc;
+      System.out.print("car#" + headCar.getID() + " is removed and placed " +
+        "into outgoing lane having direction ");
+      String direc = "";
       switch (outboundSegment) {
         case 0: direc = "SOUTHWARD";
                 break;
@@ -84,12 +84,12 @@ public class Intersection{
   } //end of advance
 
 
-  public ArrayList<Car> carsToMove(Car c0, Car c1, Car c2, Car c3){
+  public ArrayList<Integer> carsToMove(Car c0, Car c1, Car c2, Car c3){
     // based on the traffic rule, 
     // return the order of the directions of the streets on which the car moves
     Car[] inputCars = { c0, c1, c2, c3 };
 
-    ArrayList<Car> resultToMove = new ArrayList<Car>;
+    ArrayList<Integer> resultToMove = new ArrayList<Integer>();
 
     // find which cars have potential to move
     int numPotential = 0;
@@ -103,13 +103,14 @@ public class Intersection{
     } // end of for(int CarDir = 0; CarDir < 4; ++CarDir)
 
     if(numPotential <= 1){
-      Car potential;
+      int potential = -1;
       for(int CarDir = 0; CarDir < 4; ++CarDir)
         if(potentialToMove[CarDir])
-          potential = inputCars[CarDir];
+          potential = CarDir;
 
       // assuming NO cars in intersection
-      resultToMove.add(potential);
+      if(potential != -1)
+        resultToMove.add(potential);
     } // end of if(numPotential <= 1)
     else{
       // Add cars going S, then R, then L; prioritizing S E N W
@@ -118,7 +119,7 @@ public class Intersection{
         for(int CarDir = 0; CarDir < 4; ++CarDir){
           if(potentialToMove[CarDir])
             if(inputCars[CarDir].getTurnSignal() == ((turnSignal % 2) - 1))
-              resultToMove.add(inputCars[CarDir]);
+              resultToMove.add(CarDir);
         } // end of for(int CarDir = 0; CarDir < 4; ++CarDir)
       } // end of for(int turnSignal = 0; turnSignal < 3; ++turnSignal)
     } // end of else
