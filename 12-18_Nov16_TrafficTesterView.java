@@ -42,7 +42,7 @@ public class TrafficTesterView {
     Scanner console = new Scanner(System.in);
     console.nextLine();
     int numTimeUnits = console.nextInt();
-    System.out.print("The number of time units requested ");
+    System.out.print("The number of desired time units ");
     System.out.println("is: " + numTimeUnits);
     console.nextLine();
     console.nextLine();
@@ -93,12 +93,7 @@ public class TrafficTesterView {
                    numBlocksBeforeTurning, turnDirectionCode);
     } // end of for (int i = 1; i <= numberOfCars; i++)
     model.placeCar();
-    if(numTimeUnits > 0){
-      model.startSimulation();
-    } else {
-      System.out.println("input time units must be positive, it is currently "
-                         + numTimeUnits);
-    } // end of if (numTimeUnits > 0)
+    model.startSimulation();
 
   } // end of main
 
