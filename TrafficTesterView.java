@@ -92,6 +92,7 @@ public class TrafficTesterView {
       model.addCar(carID, row, col, segmentDirectionCode,
                    numBlocksBeforeTurning, turnDirectionCode);
     } // end of for (int i = 1; i <= numberOfCars; i++)
+    System.out.println();
     model.placeCar();
     if(numTimeUnits > 0){
       model.startSimulation();
