@@ -14,15 +14,13 @@ public class TrafficModel {
   private Intersection intersection [][];
   private int simulationTime;
 
-  public TrafficModel(int numIntersections,
-                      int numCarsToBegin,
-                      int numTimeUnits){
+  public TrafficModel(int numIntersections, int numCarsToBegin){
     this.numIntersectionsInOneDirection = numIntersections;
     this.numInitalCars = numCarsToBegin;
-    this.simulationTime = numTimeUnits;
     carArray = new Car [numCarsToBegin];
     gc = new GridControl(numIntersectionsInOneDirection);
     intersection = gc.getIntersections();
+    simulationTime = 1; //for now
   } //end of TrafficModel Constructor
 
   public void addCar(int carID,

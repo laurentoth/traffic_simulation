@@ -45,7 +45,6 @@ public class TrafficTesterView {
     System.out.print("The number of desired time units ");
     System.out.println("is: " + numTimeUnits);
     console.nextLine();
-    console.nextLine();
     int numIntersectionsInOneDirection = console.nextInt();
     System.out.print("The number of intersections in one direction ");
     System.out.println("is: " + numIntersectionsInOneDirection);
