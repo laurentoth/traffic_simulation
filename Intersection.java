@@ -56,7 +56,7 @@ public class Intersection{
 
     ArrayList<Integer> carsToMove = carsToMove(c0, c1, c2, c3);
     int directionToMove;
-    
+
     if(carsToMove.size() >= 1){
       directionToMove = carsToMove.get(0);
     }
@@ -107,8 +107,11 @@ public class Intersection{
             if(inputCars[carDir].getTurnSignal() == ((turnSignal % 2) - 1)){
               resultToMove.add(carDir);
             } // end of if(inputCars[carDir].getTurnSignal()...)
+
           } // end of if(inputCars[carDir] != null){
+
         } // end of for(int carDir = 0; carDir < 4; ++carDir)
+        
       } // end of for(int turnSignal = 0; turnSignal < 3; ++turnSignal)
 
     // find which cars have potential to move
