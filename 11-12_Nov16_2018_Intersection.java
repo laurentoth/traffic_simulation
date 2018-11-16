@@ -55,15 +55,7 @@ public class Intersection{
     } // end of for(int index = 0; index < 4; index++ )
 
     ArrayList<Integer> carsToMove = carsToMove(c0, c1, c2, c3);
-    int directionToMove;
-    
-    if(carsToMove.size() >= 1){
-      directionToMove = carsToMove.get(0);
-    }
-
-    else{
-      directionToMove = -1;
-    } //end of if(carsToMove.size() >= 1) else...
+    int directionToMove = carsToMove.get(0);
 
     for(int index = 0; index < 4; ++index){
       printInformationInbound(index);
@@ -73,6 +65,7 @@ public class Intersection{
         int outboundSegment = segmentToPut(headCar,index);
         myOutboundSeg[outboundSegment].putCar(headCar);
         headCar.passOneBlock();
+        System.out.println(" and");
         System.out.println("   car#" + headCar.getID()
                            + " is removed and placed "
                            + "into outgoing lane having direction " 
@@ -103,11 +96,9 @@ public class Intersection{
     ArrayList<Integer> resultToMove = new ArrayList<Integer>();
     for(int turnSignal = 1; turnSignal < 3; ++turnSignal){
         for(int carDir = 0; carDir < 4; ++carDir){
-          if(inputCars[carDir] != null){
-            if(inputCars[carDir].getTurnSignal() == ((turnSignal % 2) - 1)){
-              resultToMove.add(carDir);
-            } // end of if(inputCars[carDir].getTurnSignal()...)
-          } // end of if(inputCars[carDir] != null){
+          if(inputCars[carDir].getTurnSignal() == ((turnSignal % 2) - 1)){
+            resultToMove.add(carDir);
+          } // end of if(inputCars[carDir].getTurnSignal()...)
         } // end of for(int carDir = 0; carDir < 4; ++carDir)
       } // end of for(int turnSignal = 0; turnSignal < 3; ++turnSignal)
 
@@ -165,7 +156,7 @@ public class Intersection{
       empty = "nonempty";
     } // end of if(myInboundSeg[index].isEmpty())
 
-    System.out.println("  incoming lane having direction "
+    System.out.print("  incoming lane having direction "
                      + convertToSegmentDirection(direction)
                      + " is " + empty);
   } // end of printInformationInbound

@@ -31,13 +31,11 @@ public class Car{
 
 
   public int getTurnSignal(){
-    if (myNumBlocksBeforeTurning == 0) {
+    if(myNumBlocksBeforeTurning == 0){
       return myTurnSignal;
-    }
-       // end of if (the number of blocks until turning for the instance 
-       // reaches 0, meaning the car will turn based on its turn signal at the
-       // current intersection)
-    return 0;    // if myNumBlocksBeforeTurning != 0, go straight
+    } // end of if(myNumBlocksBeforeTurning == 0) 
+
+    return 0;
   }  // end of getTurnSignal()
 
   public int getID(){

@@ -8,26 +8,23 @@ import java.util.*;
 public class Segment{
 
   private Queue<Car> myCarQueue;
-
   private int myDirection;
-
   private boolean isEdge;
 
   public Segment(int direction){
     myDirection = direction;
     isEdge = false;
-
     myCarQueue = new LinkedList<Car>();
   } // end of Segment Constructor
 
   public void setIsEdge(boolean b){
     isEdge = b;
     return;
-  }// end of setIsEdge
+  } // end of setIsEdge
 
   public boolean getIsEdge(){
     return isEdge;
-  }// end of getIsEdge
+  } // end of getIsEdge
 
   public boolean putCar(Car car){
     myCarQueue.add(car);
