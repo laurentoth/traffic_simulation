@@ -97,9 +97,9 @@ public class TrafficTesterView {
     if(numTimeUnits > 0){
       model.startSimulation();
     } else {
-      System.out.println("ERROR: ");
+      System.out.println("ERROR: ")
       System.out.println("Simulation cannot start input time units must be" 
-                         + "positive, it is currently " + numTimeUnits + "\n");
+                         + "positive, it is currently " + numTimeUnits);
     } // end of if (numTimeUnits > 0)
 
   } // end of main

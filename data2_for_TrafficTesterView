@@ -1,5 +1,5 @@
 The number of time units requested is:
-2
+15
 numIntersectionsInOneDirection:
 2
 number of cars created for the test:
@@ -33,7 +33,7 @@ car number:
 born in the segment that is positioned at col:
 1
 born in the segment that is positioned at row:
-2
+1
 born in the segment that is oriented in direction:
 2
 additional blocks to travel prior to turning (-1 means the car will never turn):

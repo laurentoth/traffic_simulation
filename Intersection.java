@@ -80,6 +80,7 @@ public class Intersection{
 
         if(myOutboundSeg[outboundSegment].getIsEdge()){
           System.out.println("   car#" + headCar.getID() + " leaves the grid");
+          myOutboundSeg[outboundSegment].removeHeadCar();
         } // end of if(myOutboundSeg[outboundSegment].getIsEdge())
       
         if(headCar == null){
@@ -169,8 +170,8 @@ public class Intersection{
     } // end of if(myInboundSeg[index].isEmpty())
 
     System.out.println("  incoming lane having direction "
-                     + convertToSegmentDirection(direction)
-                     + " is " + empty);
+                       + convertToSegmentDirection(direction)
+                       + " is " + empty);
   } // end of printInformationInbound
 
   private void printInformationOutbound(){
