@@ -35,8 +35,8 @@ public class GridControl{
     for (int row = 1; row < numIntersections; row++){
       for (int col = 1; col < numIntersections; col++){
         intersection[row][col] = new Intersection();
-      } // end of for(int col = 1; col < numIntersections; col++)
-    } // end of for(int row = 1; row < numIntersections; row++) 
+      } // end of for(int col = 0; col < numIntersections; col++)
+    } // end of for(int row = 0; row < numIntersections; row++) 
 
     setInboundSegment();
     setOutboundSegment();

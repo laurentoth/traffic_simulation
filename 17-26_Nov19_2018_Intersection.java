@@ -74,13 +74,13 @@ public class Intersection{
         int outboundSegment = segmentToPut(headCar,index);
         myOutboundSeg[outboundSegment].putCar(headCar);
         headCar.passOneBlock();
-        System.out.println("    car#" + headCar.getID()
+        System.out.println("   car#" + headCar.getID()
                            + " is removed and placed "
                            + "into outgoing lane having direction " 
                            + convertToSegmentDirection(outboundSegment));
 
         if(myOutboundSeg[outboundSegment].getIsEdge()){
-          System.out.println("    car#" + headCar.getID() + " leaves the grid");
+          System.out.println("   car#" + headCar.getID() + " leaves the grid");
           myOutboundSeg[outboundSegment].removeHeadCar();
         } // end of if(myOutboundSeg[outboundSegment].getIsEdge())
 
@@ -101,6 +101,17 @@ public class Intersection{
     // based on the traffic rule, 
     // return the order of the directions of the streets on which the car moves
     Car[] inputCars = { c0, c1, c2, c3 };
+    /*
+    if (inputCars.length != 0) {
+      System.out.println(inputCars.length + " --> num of cars at int");
+      for (Car c : inputCars) {
+        if (c != null)
+         System.out.println("car" + c.getID() + "in this intersec");
+      }
+    } else {
+      System.out.println("no cars at this intersec");
+    }
+    */
 
     // priority of turns
     int[] turns = { 0, 1, -1 };
