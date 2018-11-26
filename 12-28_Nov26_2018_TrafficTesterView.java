@@ -7,6 +7,7 @@
 // *****************************************************************************
 // *****************************************************************************
  
+
 // NOTE: A segment has same coordinates as intersection the segment aims at.
 //   Throughout the rest of the semester, make sure that
 //   intersections of a grid are processed in exactly the following order:
@@ -98,13 +99,13 @@ public class TrafficTesterView {
     } // end of for (int i = 1; i <= numberOfCars; i++)
     System.out.println();
     model.placeCar();
-    if(numTimeUnits > 0 && maxSegmentCapacity > 0){
+    if(numTimeUnits > 0){
       model.startSimulation();
     } else {
       System.out.println("ERROR: ");
       System.out.println("Simulation cannot start input time units must be" 
                          + "positive, it is currently " + numTimeUnits + "\n");
-    } // end of if (numTimeUnits > 0 && maxSegmentCapacity > 0)
+    } // end of if (numTimeUnits > 0)
 
   } // end of main
 
