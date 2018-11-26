@@ -51,11 +51,6 @@ public class TrafficTesterView {
     System.out.println("is: " + maxSegmentCapacity);
     console.nextLine();
     console.nextLine();
-    int timeTraverseSeg = console.nextInt();
-    System.out.print("The requested time to traverse segment ");
-    System.out.println("is: " + timeTraverseSeg);
-    console.nextLine();
-    console.nextLine();
     int numIntersectionsInOneDirection = console.nextInt();
     System.out.print("The number of intersections in one direction ");
     System.out.println("is: " + numIntersectionsInOneDirection);
@@ -104,14 +99,13 @@ public class TrafficTesterView {
     } // end of for (int i = 1; i <= numberOfCars; i++)
     System.out.println();
     model.placeCar();
-    if(numTimeUnits > 0 && maxSegmentCapacity > 0 && timeTraverseSeg >= 0){
+    if(numTimeUnits > 0){
       model.startSimulation();
     } else {
       System.out.println("ERROR: ");
       System.out.println("Simulation cannot start input time units must be" 
                          + "positive, it is currently " + numTimeUnits + "\n");
-    } // end of if (numTimeUnits > 0 && maxSegmentCapacity > 0 && 
-      //            timeTraverseSeg >= 0)
+    } // end of if (numTimeUnits > 0)
 
   } // end of main
 
