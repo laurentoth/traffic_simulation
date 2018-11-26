@@ -108,7 +108,7 @@ public class TrafficTesterView {
       model.startSimulation();
     } else {
       System.out.println("ERROR: ");
-      System.out.println("Simulation cannot start input time units must be" 
+      System.out.println("Simulation cannot start input time units must be "
                          + "positive, it is currently " + numTimeUnits + "\n");
     } // end of if (numTimeUnits > 0 && maxSegmentCapacity > 0 && 
       //            timeTraverseSeg >= 0)
