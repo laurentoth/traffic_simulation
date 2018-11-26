@@ -7,7 +7,6 @@
 // *****************************************************************************
 // *****************************************************************************
  
-
 // NOTE: A segment has same coordinates as intersection the segment aims at.
 //   Throughout the rest of the semester, make sure that
 //   intersections of a grid are processed in exactly the following order:
