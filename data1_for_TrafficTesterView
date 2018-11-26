@@ -1,5 +1,7 @@
 The number of time units requested is:
 4
+The requested maximum segment capacity (in cars) is:
+1
 numIntersectionsInOneDirection:
 1
 number of cars created for the test:
