@@ -14,7 +14,6 @@ public class Car{
   private int myTurnSignal;      // 1: right; -1: left; 0: straight
   private int myTimeOnGrid;      // total time an instance has stayed in Grid
   private int myRemainingTimeOnSeg;   // time left on each segment
-  private int myTimeTraverseSeg;      // time need to traverse segment
 
   public Car(int carID,
              int r,
@@ -67,7 +66,6 @@ public class Car{
 
   public void advanceOneTimeUnit(){
     myTimeOnGrid++;
-    myTimeRemainingOnSeg--;
   }  // end of advanceOneTimeUnit()
 
   public void passOneBlock(){
