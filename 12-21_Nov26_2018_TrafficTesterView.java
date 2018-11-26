@@ -46,11 +46,6 @@ public class TrafficTesterView {
     System.out.println("is: " + numTimeUnits);
     console.nextLine();
     console.nextLine();
-    int maxSegmentCapacity = console.nextInt();
-    System.out.print("The requested maximum segment capacity (in cars) ");
-    System.out.println("is: " + maxSegmentCapacity);
-    console.nextLine();
-    console.nextLine();
     int numIntersectionsInOneDirection = console.nextInt();
     System.out.print("The number of intersections in one direction ");
     System.out.println("is: " + numIntersectionsInOneDirection);
