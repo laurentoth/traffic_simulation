@@ -36,7 +36,7 @@ public class TrafficTesterView {
   static final int TURN_RIGHTWARD = 1;
   static final int TURN_LEFTWARD = -1;
   private static TrafficModel model;
-  private static boolean isError = false;
+  private boolean isError;
 
   public static void main(String[] args) {
     Scanner console = new Scanner(System.in);
@@ -99,43 +99,20 @@ public class TrafficTesterView {
                          " block(s) to go before turning");
       System.out.println("  and plans to " +
                          convertToTurnDirection(turnDirectionCode));
-      System.out.println();
-
-      if(!checkForCarError(numberOfCars,
-                          numIntersectionsInOneDirection,
-                          carID,
-                          col,
-                          row,
-                          turnDirectionCode,
-                          segmentDirectionCode)){
-        model.addCar(carID, row, col, segmentDirectionCode,
-                     numBlocksBeforeTurning, turnDirectionCode);
-        } 
-
-      else{
-        isError = true;
-      } // end of if(!checkForCarError(numberOfCars....
-
+      model.addCar(carID, row, col, segmentDirectionCode,
+                   numBlocksBeforeTurning, turnDirectionCode);
     } // end of for (int i = 1; i <= numberOfCars; i++)
+    System.out.println();
+    model.placeCar();
+    if(numTimeUnits > 0 && maxSegmentCapacity > 0 && timeTraverseSeg >= 0){
+      model.startSimulation();
+    } else {
+      System.out.println("ERROR: ");
+      System.out.println("Simulation cannot start input time units must be" 
+                         + "positive, it is currently " + numTimeUnits + "\n");
+    } // end of if (numTimeUnits > 0 && maxSegmentCapacity > 0 && 
+      //            timeTraverseSeg >= 0)
 
-    if(!isError){
-
-      model.placeCar();
-      if(numTimeUnits > 0 && maxSegmentCapacity >= 0 && timeTraverseSeg >= 0){
-        model.startSimulation();
-      }
-
-      else {
-        System.out.println("ERROR: ");
-        System.out.println("Simulation cannot start input time units must be" 
-                         + " positive, it is currently " + numTimeUnits + "\n");
-      } // end of if (numTimeUnits > 0 && maxSegmentCapacity > 0 && ...
-    } // end of if(!isError)
-
-    else{
-      System.out.println("ERROR: Simulation cannot start due to invalid"
-                         + " input\n");
-    }
   } // end of main
 
 
@@ -154,37 +131,6 @@ public class TrafficTesterView {
     if(turnDirectionCode == TURN_LEFTWARD)  return "TURN_LEFTWARD";
     return "ILLEGAL turnDirectionCode!!!";
   } // end of convertToTurnDirection
-
-  private static boolean checkForCarError(int simNumCars,
-                                          int simNumInt,
-                                          int carNum,
-                                          int carCol,
-                                          int carRow,
-                                          int turnDirectionCode,
-                                          int segDirection){
-    boolean isThereError = false;
-
-    if(carNum > simNumCars){
-      System.out.println("ERROR: Input has more cars than indicated\n");
-      isThereError = true;
-    }
-
-    if(carCol > simNumInt || carRow > simNumInt || carRow < 1 || carCol < 1){
-      System.out.println("ERROR: Car #" + carNum + " is trying to be born in "
-                         + "non-existent segment\n");
-      isThereError = true;
-    }
-
-    if(turnDirectionCode < -1 || turnDirectionCode > 1){
-      isThereError = true;
-    }
-
-    if(segDirection < 0 || segDirection > 3){
-      isThereError = true;
-    }
-
-    return isThereError;
-  }
 
 
 } // end of TrafficTesterView

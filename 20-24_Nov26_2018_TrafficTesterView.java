@@ -118,24 +118,18 @@ public class TrafficTesterView {
 
     } // end of for (int i = 1; i <= numberOfCars; i++)
 
-    if(!isError){
 
+    if(!isError){
       model.placeCar();
       if(numTimeUnits > 0 && maxSegmentCapacity >= 0 && timeTraverseSeg >= 0){
         model.startSimulation();
-      }
-
-      else {
+      } else {
         System.out.println("ERROR: ");
         System.out.println("Simulation cannot start input time units must be" 
                          + " positive, it is currently " + numTimeUnits + "\n");
-      } // end of if (numTimeUnits > 0 && maxSegmentCapacity > 0 && ...
-    } // end of if(!isError)
+      } // end of if (numTimeUnits > 0 && maxSegmentCapacity > 0 && 
+    }//            timeTraverseSeg >= 0)
 
-    else{
-      System.out.println("ERROR: Simulation cannot start due to invalid"
-                         + " input\n");
-    }
   } // end of main
 
 
