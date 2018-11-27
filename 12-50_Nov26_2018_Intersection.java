@@ -108,7 +108,7 @@ public class Intersection{
     ArrayList<Integer> resultToMove = new ArrayList<Integer>();
     for (int t : turns) {
       for(int carDir = 0; carDir < 4; ++carDir){
-        if(inputCars[carDir] != null && inputCars[carDir].canLeaveSegment()){
+        if(inputCars[carDir] != null){
           if(inputCars[carDir].getTurnSignal() == t) {
             resultToMove.add(carDir);
           } // end of if(inputCars[carDir].getTurnSignal()...)

@@ -118,6 +118,16 @@ public class TrafficTesterView {
 
     } // end of for (int i = 1; i <= numberOfCars; i++)
 
+    System.out.println();
+    model.placeCar();
+    if(numTimeUnits > 0 && maxSegmentCapacity > 0 && timeTraverseSeg >= 0){
+      model.startSimulation();
+    } else {
+      System.out.println("ERROR: ");
+      System.out.println("Simulation cannot start input time units must be "
+                         + "positive, it is currently " + numTimeUnits + "\n");
+    } // end of if (numTimeUnits > 0 && maxSegmentCapacity > 0 && 
+
     if(!isError){
 
       model.placeCar();
@@ -188,51 +198,3 @@ public class TrafficTesterView {
 
 
 } // end of TrafficTesterView
-
- 
-
-////////////////// Example of sample use of the above program //////////////////
-// except for the fact that all the following lines have been made comments,  //
-// and also the actual phrase "additional blocks to travel" in the data       //
-// shown below has been shortened to the phrase "additional blocks" to fit    //
-// the lines below into the required 80-columns per line.                     //
-////////////////////////////////////////////////////////////////////////////////
-//numIntersectionsInOneDirection:
-//1
-//number of cars created for the test:
-//2
-//car number:
-//1
-//born in the segment that is positioned at col:
-//1
-//born in the segment that is positioned at row:
-//1
-//born in the segment that is oriented in direction:
-//0
-//additional blocks prior to turning (-1 means the car will never turn):
-//0
-//direction the car will turn, when the car turns:
-//1
-//car number:
-//2
-//born in the segment that is positioned at col:
-//1
-//born in the segment that is positioned at row:
-//1
-//born in the segment that is oriented in direction:
-//3
-//additional blocks prior to turning (-1 means the car will never turn):
-//-1
-//direction the car will turn, when the car turns:
-//0
-//hopper2{acharles}2484: java TrafficTesterView < data1_for_TrafficTesterView
-//The number of intersections in one direction is: 1
-//The number of cars is: 2
-//Car #1
-//  is born in the segment located at col 1 and row 1, that aims SOUTHWARD,
-//  and has 0 block(s) to go before turning
-//  and plans to TURN_RIGHTWARD
-//Car #2
-//  is born in the segment located at col 1 and row 1, that aims WESTWARD,
-//  and has -1 block(s) to go before turning
-//  and plans to NEVER_TURN
