@@ -11,11 +11,11 @@ public class Segment{
   private int myDirection;
   private boolean isEdge;
   private int myCapacity;
-  private int maxCapacity;
+  private int max_capacity;
 
-  public Segment(int direction, int maxCapacity){
+  public Segment(int direction, int max_capacity){
     myDirection = direction;
-    this.maxCapacity = maxCapacity;
+    this.max_capacity = max_capacity;
     isEdge = false;
     myCarQueue = new LinkedList<Car>();
   } // end of Segment Constructor
@@ -50,7 +50,7 @@ public class Segment{
   } // end of removeHeadCar
 
   public boolean isFull(){
-    if(myCapacity == maxCapacity){
+    if(myCapacity == max_capacity){
       return true;
     } // end of if(the capacity of the Segment instance is reached)
     return false;
