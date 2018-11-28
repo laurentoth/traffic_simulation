@@ -126,7 +126,7 @@ public class Intersection{
     for(int carDir = 0; carDir < 4; ++carDir){
       potentialToMove[carDir] = 
           !(myOutboundSeg[segmentToPut(inputCars[carDir], carDir)].isFull());
-    
+
       if(potentialToMove[carDir])
         ++numPotential;
     } // end of for(int carDir = 0; carDir < 4; ++carDir)

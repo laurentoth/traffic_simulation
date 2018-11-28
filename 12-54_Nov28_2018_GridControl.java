@@ -107,20 +107,11 @@ public class GridControl{
 
   public int getNumCarsLeftGrid(){
     int numCarsLeft = 0;
-    for(int row = 0; row < numIntersections; row++){
-      for(int col = 0; col < numIntersections; col++){
-        numCarsLeft += intersection[row][col].getNumExitCars();
-      } // end of for(int col = 0; col < numIntersections; col++)
-    } // end of for(int row = 0; row < numIntersections; row++)
-    getSumTimes 
-  } // end of getNumCarsLeftGrid()
-
-  public int getSumTimeOnGrid(){
-    int sumTime = 0;
-    for(int row = 0; row < numIntersections; row++){
-      for(int col = 0; col < numIntersections; col++){
-        sumTime += intersection[row][col].getSumTimes();
-      } // end of for(int col = 0; col < numIntersections; col++)
-    } // end of for(int row = 0; row < numIntersections; row++)
-  } // end of getSumTimeOnGrid()
+    for (int row = 0; row < numIntersections; row++){
+      for (int col = 0; col < numIntersections; col++){
+        
+      }
+    }
+    for getNumExitCars; getSumTimes 
+  }
 } //end of GridControl class
