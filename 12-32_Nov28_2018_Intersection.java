@@ -12,10 +12,6 @@ public class Intersection{
 
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
-
-  private int numExitedCars;
-  private int sumTimesOnGrid;
-
   private final int SOUTHWARD = 0;
   private final int EASTWARD = 1;
   private final int NORTHWARD = 2;
@@ -25,9 +21,6 @@ public class Intersection{
   public Intersection(){
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
-
-    numExitedCars = 0;
-    sumTimesOnGrid = 0;
   } // end of Intersection Constructor  
 
   public void setInbound(Segment sg, int i){
@@ -49,14 +42,6 @@ public class Intersection{
   public void putCarIntoSegment(Car car, int direction){
     myInboundSeg[direction].putCar(car);
   } // end of putCarIntoSegment
-
-  public int getNumExitCars(){
-    return numExitedCars;
-  } // end of getNumExitCars
-
-  public int getSumTimes(){
-    return sumTimesOnGrid;
-  } // end of getSumTimes
 
   public void advance(){
     Car c0, c1, c2, c3;
@@ -97,9 +82,6 @@ public class Intersection{
         if(myOutboundSeg[outboundSegment].getIsEdge()){
           System.out.println("    car#" + headCar.getID() + " leaves the grid");
           myOutboundSeg[outboundSegment].removeHeadCar();
-
-          sumTimesOnGrid += headCar.getTimeOnGrid();
-          numExitedCars++;
         } // end of if(myOutboundSeg[outboundSegment].getIsEdge())
 
         if(headCar == null){
@@ -127,10 +109,8 @@ public class Intersection{
     for (int t : turns) {
       for(int carDir = 0; carDir < 4; ++carDir){
         if(inputCars[carDir] != null && inputCars[carDir].canLeaveSegment()){
-          int segToPut = segmentToPut(inputCars[carDir], carDir);
-          if(inputCars[carDir].getTurnSignal() == t
-             && !(myOutboundSeg[segToPut].isFull())){
-              resultToMove.add(carDir);
+          if(inputCars[carDir].getTurnSignal() == t) {
+            resultToMove.add(carDir);
           } // end of if(inputCars[carDir].getTurnSignal()...)
 
         } // end of if(inputCars[carDir] != null){
@@ -139,9 +119,35 @@ public class Intersection{
         
     } // end of for(int t : turns)
 
+    // find which cars have potential to move
+    /* FOR FUTURE USE
+    int numPotential = 0;
+    boolean[] potentialToMove = new boolean[4];
+    for(int carDir = 0; carDir < 4; ++carDir){
+      potentialToMove[carDir] = 
+          !(myOutboundSeg[segmentToPut(inputCars[carDir], carDir)].isFull());
+    
+      if(potentialToMove[carDir])
+        ++numPotential;
+    } // end of for(int carDir = 0; carDir < 4; ++carDir)
+
+    if(numPotential <= 1){
+      int potential = -1;
+      for(int carDir = 0; carDir < 4; ++carDir)
+        if(potentialToMove[carDir])
+          potential = carDir;
+
+      // assuming NO cars in intersection
+      if(potential != -1)
+        resultToMove.add(potential);
+
+    } // end of if(numPotential <= 1)
+    else{
+    */
+
     return resultToMove;
 
-  }// carsToMove
+  }// end of carsToMove
 
   public int segmentToPut(Car car, int direction){
     // oppositeSegment is equal to direction (opposite faces same direction)
@@ -189,7 +195,7 @@ public class Intersection{
     } // end of for(int index = 0; index < 4; ++index)
   } // end of printInformationOutbound
 
-  private String convertToSegmentDirection(int segmentDirectionCode){
+  private static String convertToSegmentDirection(int segmentDirectionCode){
     if (segmentDirectionCode == NORTHWARD)      return "NORTHWARD";
     if (segmentDirectionCode == WESTWARD)      return "WESTWARD";
     if (segmentDirectionCode == SOUTHWARD)      return "SOUTHWARD";
