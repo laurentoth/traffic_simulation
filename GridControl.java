@@ -9,7 +9,7 @@ public class GridControl{
   private Intersection[][] intersection;
   private Segment[] segment;
   private int numIntersections;
-  //private final int SEGMENT_CAPACITY = 100;
+  private int segmentCapcity;
 
   // integer representing each direction
   private final int SOUTHWARD = 0;
@@ -17,7 +17,8 @@ public class GridControl{
   private final int NORTHWARD = 2;
   private final int WESTWARD = 3;
 
-  public GridControl(int numIntersectionsInOneDirection){
+  public GridControl(int numIntersectionsInOneDirection, int segCapcity){
+    this.segmentCapcity = segCapcity;
     this.numIntersections = numIntersectionsInOneDirection + 1;
     intersection = new Intersection[numIntersections][numIntersections];
     segment = new Segment[numIntersections * 4 * numIntersections];
@@ -25,7 +26,7 @@ public class GridControl{
     int direction = 0;
 
     for (int index = 0; index < segment.length; index++){
-      segment[index] = new Segment(direction);
+      segment[index] = new Segment(direction, segmentCapcity);
       direction++;
       if(direction == 4)
         direction = 0;
@@ -63,7 +64,7 @@ public class GridControl{
             intersection[row + 1][col].getInbound(NORTHWARD), NORTHWARD);
         }
         else{
-          Segment sg = new Segment(NORTHWARD);
+          Segment sg = new Segment(NORTHWARD, segmentCapcity);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, NORTHWARD);
         } // end of if(row + 1 < numIntersections) else ...
@@ -73,7 +74,7 @@ public class GridControl{
             intersection[row][col - 1].getInbound(WESTWARD), WESTWARD);
         }
         else{
-          Segment sg = new Segment(WESTWARD);
+          Segment sg = new Segment(WESTWARD, segmentCapcity);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, WESTWARD);
         } // end of if(col - 1 > 0) else ...
@@ -83,7 +84,7 @@ public class GridControl{
             intersection[row - 1][col].getInbound(SOUTHWARD), SOUTHWARD);
         }
         else {
-          Segment sg = new Segment(SOUTHWARD);
+          Segment sg = new Segment(SOUTHWARD, segmentCapcity);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, SOUTHWARD);
         } // end of if(row - 1 > 0) else ...
@@ -93,7 +94,7 @@ public class GridControl{
             intersection[row][col + 1].getInbound(EASTWARD), EASTWARD);
         }
         else {
-          Segment sg = new Segment(EASTWARD);
+          Segment sg = new Segment(EASTWARD, segmentCapcity);
           sg.setIsEdge(true);
           intersection[row][col].setOutbound(sg, EASTWARD);
         } // end of if(col + 1 < numIntersections) else... 

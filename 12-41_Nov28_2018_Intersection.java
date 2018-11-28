@@ -12,10 +12,6 @@ public class Intersection{
 
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
-
-  private int numExitedCars;
-  private int sumTimesOnGrid;
-
   private final int SOUTHWARD = 0;
   private final int EASTWARD = 1;
   private final int NORTHWARD = 2;
@@ -25,9 +21,6 @@ public class Intersection{
   public Intersection(){
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
-
-    numExitedCars = 0;
-    sumTimesOnGrid = 0;
   } // end of Intersection Constructor  
 
   public void setInbound(Segment sg, int i){
@@ -50,14 +43,6 @@ public class Intersection{
     myInboundSeg[direction].putCar(car);
   } // end of putCarIntoSegment
 
-  public int getNumExitCars(){
-    return numExitedCars;
-  } // end of getNumExitCars
-
-  public int getSumTimes(){
-    return sumTimesOnGrid;
-  } // end of getSumTimes
-
   public void advance(){
     Car c0, c1, c2, c3;
     c0 = myInboundSeg[0].getHeadCar();
@@ -79,7 +64,7 @@ public class Intersection{
 
     else{
       directionToMove = -1;
-    } // end of if(carsToMove.size() >= 1) else...
+    } //end of if(carsToMove.size() >= 1) else...
 
     for(int index = 0; index < 4; ++index){
       printInformationInbound(index);
@@ -97,9 +82,6 @@ public class Intersection{
         if(myOutboundSeg[outboundSegment].getIsEdge()){
           System.out.println("    car#" + headCar.getID() + " leaves the grid");
           myOutboundSeg[outboundSegment].removeHeadCar();
-
-          sumTimesOnGrid += headCar.getTimeOnGrid();
-          numExitedCars++;
         } // end of if(myOutboundSeg[outboundSegment].getIsEdge())
 
         if(headCar == null){
@@ -127,10 +109,8 @@ public class Intersection{
     for (int t : turns) {
       for(int carDir = 0; carDir < 4; ++carDir){
         if(inputCars[carDir] != null && inputCars[carDir].canLeaveSegment()){
-          int segToPut = segmentToPut(inputCars[carDir], carDir);
-          if(inputCars[carDir].getTurnSignal() == t
-             && !(myOutboundSeg[segToPut].isFull())){
-              resultToMove.add(carDir);
+          if(inputCars[carDir].getTurnSignal() == t) {
+            resultToMove.add(carDir);
           } // end of if(inputCars[carDir].getTurnSignal()...)
 
         } // end of if(inputCars[carDir] != null){
@@ -139,7 +119,6 @@ public class Intersection{
         
     } // end of for(int t : turns)
 
-<<<<<<< HEAD
     // find which cars have potential to move
     /* FOR FUTURE USE
     int numPotential = 0;
@@ -147,7 +126,7 @@ public class Intersection{
     for(int carDir = 0; carDir < 4; ++carDir){
       potentialToMove[carDir] = 
           !(myOutboundSeg[segmentToPut(inputCars[carDir], carDir)].isFull());
-
+    
       if(potentialToMove[carDir])
         ++numPotential;
     } // end of for(int carDir = 0; carDir < 4; ++carDir)
@@ -166,11 +145,9 @@ public class Intersection{
     else{
     */
 
-=======
->>>>>>> 76c56d2e0940fbab0d4640ddd0dea7a6c418104e
     return resultToMove;
 
-  } // end of carsToMove
+  }// carsToMove
 
   public int segmentToPut(Car car, int direction){
     // oppositeSegment is equal to direction (opposite faces same direction)
