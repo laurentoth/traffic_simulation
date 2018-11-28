@@ -33,6 +33,9 @@ public class Car{
     myTimeTraverseSeg = traverseTm;
   } // end of constructor of Car class
 
+  public void resetRemainingTimeOnSeg(){
+    myRemainingTimeOnSeg = myTimeTraverseSeg;
+  } // end of resetRemainingTimeOnSeg()
 
   public boolean canLeaveSegment(){
     return (myRemainingTimeOnSeg <= 0);
@@ -69,7 +72,6 @@ public class Car{
 
   public void passOneBlock(){
     myNumBlocksBeforeTurning--;
-    myRemainingTimeOnSeg = myTimeTraverseSeg;
   }  // end of passOneBlock()
 
   public int getTimeOnGrid(){

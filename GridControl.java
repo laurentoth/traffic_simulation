@@ -12,10 +12,10 @@ public class GridControl{
   //private final int SEGMENT_CAPACITY = 100;
 
   // integer representing each direction
-  private final int S = 0;
-  private final int E = 1;
-  private final int N = 2;
-  private final int W = 3;
+  private final int SOUTHWARD = 0;
+  private final int EASTWARD = 1;
+  private final int NORTHWARD = 2;
+  private final int WESTWARD = 3;
 
   public GridControl(int numIntersectionsInOneDirection){
     this.numIntersections = numIntersectionsInOneDirection + 1;
@@ -46,10 +46,10 @@ public class GridControl{
     for (int row = 1; row < numIntersections; row++){
       for(int col = 1; col < numIntersections; col++){
         int index = 4 * ((row - 1) + (col - 1) * numIntersections);
-        intersection[row][col].setInbound(segment[index], S);
-        intersection[row][col].setInbound(segment[index + 1], E);
-        intersection[row][col].setInbound(segment[index + 2], N);
-        intersection[row][col].setInbound(segment[index + 3], W);
+        intersection[row][col].setInbound(segment[index], SOUTHWARD);
+        intersection[row][col].setInbound(segment[index + 1], EASTWARD);
+        intersection[row][col].setInbound(segment[index + 2], NORTHWARD);
+        intersection[row][col].setInbound(segment[index + 3], WESTWARD);
       } //end of for(int col = 1; col < numIntersections; col++)
     } // end of for(int row = 1; row < numIntersections; row++)
   } // end of setInboundSegment
@@ -60,42 +60,42 @@ public class GridControl{
       for(int col = 1; col < numIntersections; col++){
         if(row + 1 < numIntersections){
           intersection[row][col].setOutbound(
-            intersection[row + 1][col].getInbound(N), N);
+            intersection[row + 1][col].getInbound(NORTHWARD), NORTHWARD);
         }
         else{
-          Segment sg = new Segment(N);
+          Segment sg = new Segment(NORTHWARD);
           sg.setIsEdge(true);
-          intersection[row][col].setOutbound(sg, N);
+          intersection[row][col].setOutbound(sg, NORTHWARD);
         } // end of if(row + 1 < numIntersections) else ...
 
         if(col - 1 > 0){
           intersection[row][col].setOutbound(
-            intersection[row][col - 1].getInbound(W), W);
+            intersection[row][col - 1].getInbound(WESTWARD), WESTWARD);
         }
         else{
-          Segment sg = new Segment(W);
+          Segment sg = new Segment(WESTWARD);
           sg.setIsEdge(true);
-          intersection[row][col].setOutbound(sg, W);
+          intersection[row][col].setOutbound(sg, WESTWARD);
         } // end of if(col - 1 > 0) else ...
 
         if(row - 1 > 0){
           intersection[row][col].setOutbound(
-            intersection[row - 1][col].getInbound(S), S);
+            intersection[row - 1][col].getInbound(SOUTHWARD), SOUTHWARD);
         }
         else {
-          Segment sg = new Segment(S);
+          Segment sg = new Segment(SOUTHWARD);
           sg.setIsEdge(true);
-          intersection[row][col].setOutbound(sg, S);
+          intersection[row][col].setOutbound(sg, SOUTHWARD);
         } // end of if(row - 1 > 0) else ...
 
         if(col + 1 < numIntersections){
           intersection[row][col].setOutbound(
-            intersection[row][col + 1].getInbound(E), E);
+            intersection[row][col + 1].getInbound(EASTWARD), EASTWARD);
         }
         else {
-          Segment sg = new Segment(E);
+          Segment sg = new Segment(EASTWARD);
           sg.setIsEdge(true);
-          intersection[row][col].setOutbound(sg, E);
+          intersection[row][col].setOutbound(sg, EASTWARD);
         } // end of if(col + 1 < numIntersections) else... 
       } // end of for (int col = 0; col < numIntersections; col++)
     } // end of for (int row = 0; row < numIntersections; row++)

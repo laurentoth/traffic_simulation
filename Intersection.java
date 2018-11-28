@@ -12,10 +12,10 @@ public class Intersection{
 
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
-  private final int S = 0;
-  private final int E = 1;
-  private final int N = 2;
-  private final int W = 3;
+  private final int SOUTHWARD = 0;
+  private final int EASTWARD = 1;
+  private final int NORTHWARD = 2;
+  private final int WESTWARD = 3;
 
 
   public Intersection(){
@@ -196,10 +196,10 @@ public class Intersection{
   } // end of printInformationOutbound
 
   private static String convertToSegmentDirection(int segmentDirectionCode){
-    if (segmentDirectionCode == 2)      return "NORTHWARD";
-    if (segmentDirectionCode == 3)      return "WESTWARD";
-    if (segmentDirectionCode == 0)      return "SOUTHWARD";
-    if (segmentDirectionCode == 1)      return "EASTWARD";
+    if (segmentDirectionCode == NORTHWARD)      return "NORTHWARD";
+    if (segmentDirectionCode == WESTWARD)      return "WESTWARD";
+    if (segmentDirectionCode == SOUTHWARD)      return "SOUTHWARD";
+    if (segmentDirectionCode == EASTWARD)      return "EASTWARD";
     return "ILLEGAL segmentDirectionCode!!!" + segmentDirectionCode;
   } // end of convertToSegmentDirection
 
