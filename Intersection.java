@@ -190,9 +190,9 @@ public class Intersection{
   } // end of printInformationOutbound
 
   private String convertToSegmentDirection(int segmentDirectionCode){
-    if (segmentDirectionCode == NORTHWARD)      return "NORTHWARD";
+    if (segmentDirectionCode == NORTHWARD)     return "NORTHWARD";
     if (segmentDirectionCode == WESTWARD)      return "WESTWARD";
-    if (segmentDirectionCode == SOUTHWARD)      return "SOUTHWARD";
+    if (segmentDirectionCode == SOUTHWARD)     return "SOUTHWARD";
     if (segmentDirectionCode == EASTWARD)      return "EASTWARD";
     return "ILLEGAL segmentDirectionCode!!!" + segmentDirectionCode;
   } // end of convertToSegmentDirection
