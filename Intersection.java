@@ -139,35 +139,6 @@ public class Intersection{
         
     } // end of for(int t : turns)
 
-<<<<<<< HEAD
-    // find which cars have potential to move
-    /* FOR FUTURE USE
-    int numPotential = 0;
-    boolean[] potentialToMove = new boolean[4];
-    for(int carDir = 0; carDir < 4; ++carDir){
-      potentialToMove[carDir] = 
-          !(myOutboundSeg[segmentToPut(inputCars[carDir], carDir)].isFull());
-
-      if(potentialToMove[carDir])
-        ++numPotential;
-    } // end of for(int carDir = 0; carDir < 4; ++carDir)
-
-    if(numPotential <= 1){
-      int potential = -1;
-      for(int carDir = 0; carDir < 4; ++carDir)
-        if(potentialToMove[carDir])
-          potential = carDir;
-
-      // assuming NO cars in intersection
-      if(potential != -1)
-        resultToMove.add(potential);
-
-    } // end of if(numPotential <= 1)
-    else{
-    */
-
-=======
->>>>>>> 76c56d2e0940fbab0d4640ddd0dea7a6c418104e
     return resultToMove;
 
   } // end of carsToMove
