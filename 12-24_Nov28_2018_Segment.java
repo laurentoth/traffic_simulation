@@ -10,6 +10,7 @@ public class Segment{
   private Queue<Car> myCarQueue;
   private int myDirection;
   private boolean isEdge;
+  private int myCapacity;
   private int maxCapacity;
 
   public Segment(int direction, int maxCapacity){
@@ -49,7 +50,7 @@ public class Segment{
   } // end of removeHeadCar
 
   public boolean isFull(){
-    if(myCarQueue.size() == maxCapacity){
+    if(myCapacity == maxCapacity){
       return true;
     } // end of if(the capacity of the Segment instance is reached)
     return false;
