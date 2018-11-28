@@ -122,7 +122,6 @@ public class TrafficTesterView {
     } // end of for (int i = 1; i <= numberOfCars; i++)
 
     System.out.println();
-    model.placeCar();
 
     if(!isError){
 
