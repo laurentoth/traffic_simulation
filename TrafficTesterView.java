@@ -194,7 +194,6 @@ public class TrafficTesterView {
     }
 
     return isThereError;
-  }
-
+  } // end of checkForCarError
 
 } // end of TrafficTesterView
