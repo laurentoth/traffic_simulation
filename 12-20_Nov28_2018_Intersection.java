@@ -195,7 +195,7 @@ public class Intersection{
     } // end of for(int index = 0; index < 4; ++index)
   } // end of printInformationOutbound
 
-  private String convertToSegmentDirection(int segmentDirectionCode){
+  private static String convertToSegmentDirection(int segmentDirectionCode){
     if (segmentDirectionCode == NORTHWARD)      return "NORTHWARD";
     if (segmentDirectionCode == WESTWARD)      return "WESTWARD";
     if (segmentDirectionCode == SOUTHWARD)      return "SOUTHWARD";

@@ -65,7 +65,8 @@ public class TrafficTesterView {
     System.out.println("The number of cars is: " + numberOfCars);
     model = new TrafficModel(numIntersectionsInOneDirection,
                              numberOfCars,
-                             numTimeUnits);
+                             numTimeUnits,
+                             maxSegmentCapacity);
     int carID;
     int row;
     int col;
@@ -108,6 +109,7 @@ public class TrafficTesterView {
                           row,
                           turnDirectionCode,
                           segmentDirectionCode)){
+
         model.addCar(carID, row, col, segmentDirectionCode,
                      numBlocksBeforeTurning, turnDirectionCode,
                      timeTraverseSeg);
@@ -121,13 +123,6 @@ public class TrafficTesterView {
 
     System.out.println();
     model.placeCar();
-    if(numTimeUnits > 0 && maxSegmentCapacity > 0 && timeTraverseSeg >= 0){
-      model.startSimulation();
-    } else {
-      System.out.println("ERROR: ");
-      System.out.println("Simulation cannot start input time units must be "
-                         + "positive, it is currently " + numTimeUnits + "\n");
-    } // end of if (numTimeUnits > 0 && maxSegmentCapacity > 0 && 
 
     if(!isError){
 
