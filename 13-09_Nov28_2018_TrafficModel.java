@@ -73,15 +73,7 @@ public class TrafficModel {
 
   public String getAvrgTime(){
     String info = "";
-    int numCarsLeft = gc.getNumCarsLeftGrid();
-    int sumTime = gc.getSumTimeOnGrid();
-    if (numCarsLeft == 0) {
-      info += "  No cars left the grid";
-    } else {
-      double avrg = sumTime / numCarsLeft;
-      info += ("  The average time in the grid for cars that left the grid is: "
-           + avrg);
-    }
-    return info;
+    int numCarsLeft = gc.get
+
   }
 } // end of TrafficModel
