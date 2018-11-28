@@ -64,7 +64,7 @@ public class Car{
 
   public void advanceOneTimeUnit(){
     myTimeOnGrid++;
-    myTimeRemainingOnSeg--;
+    myRemainingTimeOnSeg--;
   }  // end of advanceOneTimeUnit()
 
   public void passOneBlock(){

@@ -30,16 +30,14 @@ public class TrafficModel {
                      int col,
                      int segmentDirectionCode,
                      int numBlocksBeforeTurning,
-                     int turnDirectionCode,
-                     int timeToTraverse){
+                     int turnDirectionCode){
 
     carArray[carID-1] = new Car(carID,
                                 row,
                                 col,
                                 segmentDirectionCode,
                                 numBlocksBeforeTurning,
-                                turnDirectionCode,
-                                timeToTraverse);
+                                turnDirectionCode);
     return;
   } // end of addCar
 

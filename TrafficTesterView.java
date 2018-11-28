@@ -109,7 +109,8 @@ public class TrafficTesterView {
                           turnDirectionCode,
                           segmentDirectionCode)){
         model.addCar(carID, row, col, segmentDirectionCode,
-                     numBlocksBeforeTurning, turnDirectionCode);
+                     numBlocksBeforeTurning, turnDirectionCode,
+                     timeTraverseSeg);
         } 
 
       else{
@@ -194,7 +195,6 @@ public class TrafficTesterView {
     }
 
     return isThereError;
-  }
-
+  } // end of checkForCarError
 
 } // end of TrafficTesterView
