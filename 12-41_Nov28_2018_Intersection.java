@@ -109,10 +109,8 @@ public class Intersection{
     for (int t : turns) {
       for(int carDir = 0; carDir < 4; ++carDir){
         if(inputCars[carDir] != null && inputCars[carDir].canLeaveSegment()){
-          int segToPut = segmentToPut(inputCars[carDir], carDir);
-          if(inputCars[carDir].getTurnSignal() == t
-             && !(myOutboundSeg[segToPut].isFull())){
-              resultToMove.add(carDir);
+          if(inputCars[carDir].getTurnSignal() == t) {
+            resultToMove.add(carDir);
           } // end of if(inputCars[carDir].getTurnSignal()...)
 
         } // end of if(inputCars[carDir] != null){
@@ -120,6 +118,32 @@ public class Intersection{
       } // end of for(int carDir = 0; carDir < 4; ++carDir)
         
     } // end of for(int t : turns)
+
+    // find which cars have potential to move
+    /* FOR FUTURE USE
+    int numPotential = 0;
+    boolean[] potentialToMove = new boolean[4];
+    for(int carDir = 0; carDir < 4; ++carDir){
+      potentialToMove[carDir] = 
+          !(myOutboundSeg[segmentToPut(inputCars[carDir], carDir)].isFull());
+    
+      if(potentialToMove[carDir])
+        ++numPotential;
+    } // end of for(int carDir = 0; carDir < 4; ++carDir)
+
+    if(numPotential <= 1){
+      int potential = -1;
+      for(int carDir = 0; carDir < 4; ++carDir)
+        if(potentialToMove[carDir])
+          potential = carDir;
+
+      // assuming NO cars in intersection
+      if(potential != -1)
+        resultToMove.add(potential);
+
+    } // end of if(numPotential <= 1)
+    else{
+    */
 
     return resultToMove;
 
