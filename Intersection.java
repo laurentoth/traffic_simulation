@@ -12,6 +12,10 @@ public class Intersection{
 
   private Segment [] myInboundSeg;
   private Segment [] myOutboundSeg;
+
+  private int numExitedCars;
+  private int sumTimesOnGrid;
+
   private final int SOUTHWARD = 0;
   private final int EASTWARD = 1;
   private final int NORTHWARD = 2;
@@ -21,6 +25,9 @@ public class Intersection{
   public Intersection(){
     myInboundSeg = new Segment[4];
     myOutboundSeg = new Segment[4];
+
+    numExitedCars = 0;
+    sumTimesOnGrid = 0;
   } // end of Intersection Constructor  
 
   public void setInbound(Segment sg, int i){
@@ -42,6 +49,14 @@ public class Intersection{
   public void putCarIntoSegment(Car car, int direction){
     myInboundSeg[direction].putCar(car);
   } // end of putCarIntoSegment
+
+  public int getNumExitCars(){
+    return numExitedCars;
+  } // end of getNumExitCars
+
+  public int getSumTimes(){
+    return sumTimesOnGrid;
+  } // end of getSumTimes
 
   public void advance(){
     Car c0, c1, c2, c3;
@@ -82,6 +97,9 @@ public class Intersection{
         if(myOutboundSeg[outboundSegment].getIsEdge()){
           System.out.println("    car#" + headCar.getID() + " leaves the grid");
           myOutboundSeg[outboundSegment].removeHeadCar();
+
+          sumTimesOnGrid += headCar.getTimeOnGrid();
+          numExitedCars++;
         } // end of if(myOutboundSeg[outboundSegment].getIsEdge())
 
         if(headCar == null){
