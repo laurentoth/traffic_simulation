@@ -76,21 +76,23 @@ public class TrafficModel {
     for(int row = 1; row < (numIntersectionsInOneDirection + 1); row++){
       for(int col = 1; col < (numIntersectionsInOneDirection + 1); col++){
          intersection[row][col].callResetCarsThatMoved();
-      }
-    }
+      } // end of for(int row = 1...
+    } // end of for(int col = 1 ...
   } // end of resetTimeUnit
 
   public String getAvrgTime(){
     String info = "";
     int numCarsLeft = gc.getNumCarsLeftGrid();
     double sumTime = gc.getSumTimeOnGrid();
-    if (numCarsLeft == 0) {
+    if(numCarsLeft == 0){
       info += "  No cars left the grid during simulation";
-    } else {
+    }
+    else{
       double avrg = sumTime / numCarsLeft;
       info += ("  The average time in the grid for cars that left the grid is: "
            + avrg);
-    }
+    } // end of if(numCarsLeft == 0)
     return info;
-  }
+  } // end of getAvrgTime
+
 } // end of TrafficModel

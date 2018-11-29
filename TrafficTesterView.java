@@ -173,21 +173,21 @@ public class TrafficTesterView {
     if(carNum > simNumCars){
       System.out.println("ERROR: Input has more cars than indicated\n");
       isThereError = true;
-    }
+    } // end of if(carNum > simNumCars)
 
     if(carCol > simNumInt || carRow > simNumInt || carRow < 1 || carCol < 1){
       System.out.println("ERROR: Car #" + carNum + " is trying to be born in "
                          + "non-existent segment\n");
       isThereError = true;
-    }
+    } // end of if(carCol > simNumInt...
 
     if(turnDirectionCode < -1 || turnDirectionCode > 1){
       isThereError = true;
-    }
+    } // end of if(turnDirectionCode < -1 || turnDirectionCode > 1)
 
     if(segDirection < 0 || segDirection > 3){
       isThereError = true;
-    }
+    } // end of if(segDirection < 0 || segDirection > 3
 
     return isThereError;
   } // end of checkForCarError

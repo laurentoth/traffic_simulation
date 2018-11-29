@@ -81,9 +81,9 @@ public class Car{
 
   public void moved(){
     hasMovedThisTimeStep = true;
-  }
+  } // end of moved
 
   public void reset(){
     hasMovedThisTimeStep = false;
-  }
+  } // end of reset
 }

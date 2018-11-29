@@ -45,7 +45,7 @@ public class Segment{
     while(queueIterator.hasNext()){
       queueIterator.next().reset();
     } // end of while(queueIterator.hasNext())
-  }
+  } // end of resetCarsThatMoved
 
   public Car getHeadCar(){
     return myCarQueue.peek();
