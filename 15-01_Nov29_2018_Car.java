@@ -15,7 +15,6 @@ public class Car{
   private int myTimeOnGrid;      // total time an instance has stayed in Grid
   private int myRemainingTimeOnSeg;   // time left on each segment
   private int myTimeTraverseSeg;      // time need to traverse segment
-  private boolean hasMovedThisTimeStep = false;
 
   public Car(int carID,
              int r,
@@ -64,9 +63,7 @@ public class Car{
   } // end of getCurrentDirection
 
   public void advanceOneTimeUnit(){
-    if(!hasMovedThisTimeStep){
-      myTimeOnGrid++;
-    }// end of if(!hasMovedThisTimeStep)
+    myTimeOnGrid++;
     myRemainingTimeOnSeg--;
   }  // end of advanceOneTimeUnit()
 
@@ -78,12 +75,4 @@ public class Car{
   public int getTimeOnGrid(){
     return myTimeOnGrid;
   } // end of getTimeOnGrid
-
-  public void moved(){
-    hasMovedThisTimeStep = true;
-  }
-
-  public void reset(){
-    hasMovedThisTimeStep = false;
-  }
 }

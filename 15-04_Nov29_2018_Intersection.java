@@ -89,7 +89,6 @@ public class Intersection{
         int outboundSegment = segmentToPut(headCar,index);
         myOutboundSeg[outboundSegment].putCar(headCar);
         headCar.passOneBlock();
-        headCar.moved();
         System.out.println("    car#" + headCar.getID()
                            + " is removed and placed "
                            + "into outgoing lane having direction " 
@@ -197,11 +196,5 @@ public class Intersection{
     if (segmentDirectionCode == EASTWARD)      return "EASTWARD";
     return "ILLEGAL segmentDirectionCode!!!" + segmentDirectionCode;
   } // end of convertToSegmentDirection
-
-  public void callResetCarsThatMoved(){
-    for(int index = 0; index < 4; ++index){
-      myInboundSeg[index].resetCarsThatMoved();
-    } // end of for(int index = 0; index < 4; index++ )
-  }
 
 } // end of Intersection Class

@@ -67,18 +67,9 @@ public class TrafficModel {
           System.out.println();
         } // end for(int col = 1; col < (numIntersectionsInOneDirection + 1)...)
       } // end for(int row = 1; row < (numIntersectionsInOneDirection + 1)...)
-      resetTimeUnit();
     } // end for(int time = 0; time < simulationTime; time++)
     return;
   } // end of startSimulation
-
-  private void resetTimeUnit(){
-    for(int row = 1; row < (numIntersectionsInOneDirection + 1); row++){
-      for(int col = 1; col < (numIntersectionsInOneDirection + 1); col++){
-         intersection[row][col].callResetCarsThatMoved();
-      }
-    }
-  } // end of resetTimeUnit
 
   public String getAvrgTime(){
     String info = "";

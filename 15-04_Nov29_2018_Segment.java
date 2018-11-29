@@ -40,13 +40,6 @@ public class Segment{
     } // end of while(queueIterator.hasNext())
   } // end of advanceCarTimeOnGrid
 
-  public void resetCarsThatMoved(){
-    Iterator<Car> queueIterator = myCarQueue.iterator();
-    while(queueIterator.hasNext()){
-      queueIterator.next().reset();
-    } // end of while(queueIterator.hasNext())
-  }
-
   public Car getHeadCar(){
     return myCarQueue.peek();
   } // end of getHeadCar
