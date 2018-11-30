@@ -69,6 +69,8 @@ public class TrafficModel {
       } // end for(int row = 1; row < (numIntersectionsInOneDirection + 1)...)
       resetTimeUnit();
     } // end for(int time = 0; time < simulationTime; time++)
+  
+    System.out.println(getAvrgTime());
     return;
   } // end of startSimulation
 
