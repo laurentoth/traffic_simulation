@@ -126,10 +126,7 @@ public class TrafficTesterView {
     if(!isError){
 
       model.placeCar();
-      if(numTimeUnits > 0
-         && maxSegmentCapacity >= 0
-         && timeTraverseSeg >= 0
-         && numIntersectionsInOneDirection > 0){
+      if(numTimeUnits > 0 && maxSegmentCapacity >= 0 && timeTraverseSeg >= 0){
         model.startSimulation();
         System.out.println(model.getAvrgTime());
       }
