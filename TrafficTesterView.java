@@ -132,6 +132,8 @@ public class TrafficTesterView {
          && timeTraverseSeg >= 0
          && numIntersectionsInOneDirection > 0){
         model.startSimulation();
+
+        System.out.println(model.getAvrgTime());
       }
 
       else {
