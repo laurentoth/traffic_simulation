@@ -87,7 +87,7 @@ public class TrafficModel {
     int numCarsLeft = gc.getNumCarsLeftGrid();
     double sumTime = gc.getSumTimeOnGrid();
     if(numCarsLeft == 0){
-      info += "  No cars left the grid during simulation";
+      info += "  No cars left the grid";
     }
     else{
       double avrg = sumTime / numCarsLeft;
