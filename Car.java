@@ -66,9 +66,9 @@ public class Car{
   public void advanceOneTimeUnit(){
     if(!hasMovedThisTimeStep){
       myTimeOnGrid++;
-    }// end of if(!hasMovedThisTimeStep)
+    } // end of if(!hasMovedThisTimeStep)
     myRemainingTimeOnSeg--;
-  }  // end of advanceOneTimeUnit()
+  } // end of advanceOneTimeUnit()
 
   public void passOneBlock(){
     myNumBlocksBeforeTurning--;
@@ -86,4 +86,4 @@ public class Car{
   public void reset(){
     hasMovedThisTimeStep = false;
   } // end of reset
-}
+} // end of Car class
