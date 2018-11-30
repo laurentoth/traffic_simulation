@@ -98,7 +98,6 @@ public class Intersection{
         if(myOutboundSeg[outboundSegment].getIsEdge()){
           System.out.println("    car#" + headCar.getID() + " leaves the grid");
           myOutboundSeg[outboundSegment].removeHeadCar();
-          System.out.println("car#" + headCar.getID() + " time: " + headCar.getTimeOnGrid());
           sumTimesOnGrid += headCar.getTimeOnGrid();
           numExitedCars++;
         } // end of if(myOutboundSeg[outboundSegment].getIsEdge())
