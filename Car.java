@@ -32,6 +32,7 @@ public class Car{
     myTurnSignal = turn;
     myTimeOnGrid = 0;
     myTimeTraverseSeg = traverseTm;
+    myRemainingTimeOnSeg = myTimeTraverseSeg;
   } // end of constructor of Car class
 
 
