@@ -51,7 +51,7 @@ public class TrafficModel {
       int direction = carArray[index].getCurrentDirection();
       intersection[tempRow][tempCol].putCarIntoSegment(carArray[index],
                                                        direction);
-    }
+    } // end of for(int index = 0; index < carArray.length; index++)
     return;
   } // end of placeCar
 
@@ -59,6 +59,7 @@ public class TrafficModel {
     for(int time = 0; time < simulationTime; time++){
       System.out.println("TIME UNIT " + (time + 1) + " BEGINS");
       System.out.println();
+      
       for(int row = 1; row < (numIntersectionsInOneDirection + 1); row++){
         for(int col = 1; col < (numIntersectionsInOneDirection + 1); col++){
           System.out.println("At the intersection located at col "

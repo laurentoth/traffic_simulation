@@ -132,7 +132,6 @@ public class TrafficTesterView {
          && timeTraverseSeg >= 0
          && numIntersectionsInOneDirection > 0){
         model.startSimulation();
-//        System.out.println(model.getAvrgTime());
       }
 
       else {
@@ -140,12 +139,12 @@ public class TrafficTesterView {
         System.out.println("Simulation cannot start input time units must be" 
                          + " positive, it is currently " + numTimeUnits + "\n");
       } // end of if (numTimeUnits > 0 && maxSegmentCapacity > 0 && ...
-    } // end of if(!isError)
+    } 
 
     else{
       System.out.println("ERROR: Simulation cannot start due to invalid"
                          + " input\n");
-    }
+    } // end of if(!isError)
   } // end of main
 
 

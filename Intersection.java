@@ -87,9 +87,11 @@ public class Intersection{
       if(index == directionToMove){
         Car headCar = myInboundSeg[index].removeHeadCar();
         int outboundSegment = segmentToPut(headCar,index);
+
         myOutboundSeg[outboundSegment].putCar(headCar);
         headCar.passOneBlock();
         headCar.moved();
+
         System.out.println("    car#" + headCar.getID()
                            + " is removed and placed "
                            + "into outgoing lane having direction " 
@@ -98,7 +100,7 @@ public class Intersection{
         if(myOutboundSeg[outboundSegment].getIsEdge()){
           System.out.println("    car#" + headCar.getID() + " leaves the grid");
           myOutboundSeg[outboundSegment].removeHeadCar();
-          System.out.println("car#" + headCar.getID() + " time: " + headCar.getTimeOnGrid());
+
           sumTimesOnGrid += headCar.getTimeOnGrid();
           numExitedCars++;
         } // end of if(myOutboundSeg[outboundSegment].getIsEdge())
