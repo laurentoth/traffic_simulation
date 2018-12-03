@@ -67,9 +67,14 @@ public class Car{
   public void advanceOneTimeUnit(){
     if(!hasMovedThisTimeStep){
       myTimeOnGrid++;
+      myRemainingTimeOnSeg--;
     } // end of if(!hasMovedThisTimeStep)
-    myRemainingTimeOnSeg--;
+    
   } // end of advanceOneTimeUnit()
+
+  public int getMyTimeSeg(){
+    return myRemainingTimeOnSeg;
+  }
 
   public void passOneBlock(){
     myNumBlocksBeforeTurning--;
