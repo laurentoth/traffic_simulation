@@ -141,6 +141,75 @@ Traffic Flow Simulator: Requirements Document
              grid. Then when that intersection has moved all cars appropriately,
              the program will print for each outgoing segment, in the same order
              of direction, whether that segment is empty or nonempty.
+       6.1.3 The third deliverable will be a program that expands beyond the 
+             program in 6.1.2. Besides what the program is able to achieve in
+             6.1.2, this program of the third deliverable supports one or more 
+             time units, using two additional lines at the beginning of existing
+             data file format, where those two lines are exactly 
+             (with no indentation)
+               The number of time units requested is:
+               x
+             (where x is a positive number)
+             The program will assume x is an integer, but will do error checking
+             to make sure it is a positive number, and echo printing will also
+             be incorporated. In addition, there can also be cars that turn left
+             exactly once, and at most one car can go through any single 
+             intersection in one time unit. Contention for use of intersection
+             is resolved according to the priority rules indicated in 4.2.1, and
+             cars that go through an intersection require no time to accomplish
+             that movement.
+             If during the error checking there are user input found out to be
+             not within the appropriate range, the simulation will not begin, 
+             and error message will be printed out for incorrect input.
+       
+       6.1.4 The fourth deliverable will be a program that expands beyond the 
+             program in 6.1.3. Besides what the program is able to achieve in
+             6.1.3, this program of the fourth deliverable is able to receive
+             user input about the maximum cars can be placed in one segment,
+             and the minimum time units for a car to traverse a segment inside
+             the grid. The program will assume the two inputs mentioned above 
+             are integers, but will check to make sure the maximum segment 
+             capacity is greater than 0, and the minimum time to traverse 
+             segment is non-negative. The maximum segment capacity is constant
+             for all segments, and the minimum time to traverse segment is 
+             constant as well for all cars. The information related to time to
+             traverse segement is further clarified below:
+               if the time to traverse segment = t (t is greater than or equal
+               to 0), then the car has to stay in the segment for t time units
+               and cannot go through any intersection whatsoever if the car's
+               time on the current segment has not reached t; a chart is used
+               for the purpose of illustration:
+               in the following chart, n denotes the time unit within a car 
+               enters a segment, while t denotes the time to traverse segment:
+               --+---+-----------------------------------------
+               n | t | time unit during which car can move
+               --+---+-----------------------------------------
+               0 | 1 | 1
+               1 | 1 | 2
+               0 | 0 | 1
+               1 | 0 | 1
+               --+---+-----------------------------------------
+               Note that if the car is put into the grid in time unit 0, and 
+               the time to traverse segment is 0, the car cannot leave the 
+               current segment until time unit 1. It seems the car has stayed 
+               in the segment for actually 1 time unit instead of 0, but it is
+               actually because the simulation is not started yet in time unit
+               0, so nothing is able to move in time unit 0, and the earliest
+               time unit a car is able to move is at time unit 1. Thus, though
+               the above seems to be a contradiction, it is actually not
+             At the end of the execution, the 
+             program will print out either a line using exactly the following
+             format:
+               The average time in the grid for cars that left the grid is: ...
+             or exactly the following line:
+               No cars left the grid
+             where the ... is a decimal number. 
+
+             The program will not do the following two error checkings:
+             1) the program will assume cars put into each segment before the
+                simulation begins will not exceed the capacity of the segment,
+                so there will not be related error checking;
+             2) ???
 
    6.2 Possible extensions
        (number and list the ways the software can be extended after Oct 31, in 
