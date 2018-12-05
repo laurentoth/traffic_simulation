@@ -1,0 +1,38 @@
+Author:  FOXES (Greg, Lauren, Maxine)
+
+We have added, to the requirements document, an additional entry to the
+glossary with header 7.23 for the term "time to traverse segment". This entry
+serves to clarify the meaning intended by the client and as it has been
+clarified to us in a recent email by Dr. C.
+
+We have also added sections 6.1.3 and 6.1.4 that detail the life cycle
+considerations of the ast two subsets, subsets 3 and 4 respectively.
+
+In the requirements document, the description in subset 4 does *not* agree with
+our implementation, insofaras it does not exhibit the correct behavior of
+advancing time units given by the example table in section 6.1.4.
+
+67-73 of Car.java:
+The nonconforming implementation of advanceOneTimeUnit() read the following:
+------ BEGIN NONCONFORMANT IMPLEMENTATION OF advanceOneTimeUnit() --------
+  public void advanceOneTimeUnit(){
+    if(!hasMovedThisTimeStep){
+      myTimeOnGrid++;
+    } // end of if(!hasMovedThisTimeStep)
+
+    myRemainingTimeOnSeg--;    
+  } // end of advanceOneTimeUnit()
+------- END NONCONFORMANT IMPLEMENTATION OF advanceOneTimeUnit() ---------
+
+The fixed implementation would be the following:
+---------- BEGIN FIXED IMPLEMENTATION OF advanceOneTimeUnit() ------------
+  public void advanceOneTimeUnit(){
+    if(!hasMovedThisTimeStep){
+      myTimeOnGrid++;
+      myRemainingTimeOnSeg--;
+    } // end of if(!hasMovedThisTimeStep)
+    
+  } // end of advanceOneTimeUnit()
+----------- END FIXED IMPLEMENTATION OF advanceOneTimeUnit() -------------
+
+note the differing positions of the line:   myRemainingTimeOnSeg--;
