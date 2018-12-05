@@ -14,7 +14,9 @@ advancing time units given by the example table in section 6.1.4.
 
 67-73 of Car.java:
 The nonconforming implementation of advanceOneTimeUnit() read the following:
+
 ------ BEGIN NONCONFORMANT IMPLEMENTATION OF advanceOneTimeUnit() --------
+
   public void advanceOneTimeUnit(){
     if(!hasMovedThisTimeStep){
       myTimeOnGrid++;
@@ -22,10 +24,13 @@ The nonconforming implementation of advanceOneTimeUnit() read the following:
 
     myRemainingTimeOnSeg--;    
   } // end of advanceOneTimeUnit()
+
 ------- END NONCONFORMANT IMPLEMENTATION OF advanceOneTimeUnit() ---------
 
 The fixed implementation would be the following:
+
 ---------- BEGIN FIXED IMPLEMENTATION OF advanceOneTimeUnit() ------------
+
   public void advanceOneTimeUnit(){
     if(!hasMovedThisTimeStep){
       myTimeOnGrid++;
@@ -33,6 +38,7 @@ The fixed implementation would be the following:
     } // end of if(!hasMovedThisTimeStep)
     
   } // end of advanceOneTimeUnit()
+
 ----------- END FIXED IMPLEMENTATION OF advanceOneTimeUnit() -------------
 
 note the differing positions of the line:   myRemainingTimeOnSeg--;
