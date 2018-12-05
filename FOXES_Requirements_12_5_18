@@ -174,7 +174,9 @@ Traffic Flow Simulator: Requirements Document
                y
              (where y is a positive number)
              The program will assume y is an integer, but will check to make
-             sure the maximum segment capacity is greater than 0.
+             sure the maximum segment capacity is greater than 0. The maximum
+             segment capacity is constant for all segments.
+
              In any data file for Subset four (immediately after the number
              for the requested maximum segment capacity), there should be two
              lines:
@@ -183,11 +185,12 @@ Traffic Flow Simulator: Requirements Document
                z
              (where z is a positive number)
              The program will assume z is an integer, but will check to make
-             sure the minimum time to traverse segment is non-negative.
-             The maximum segment capacity is constant for all segments, and the
-             minimum time to traverse segment is constant as well for all cars. 
-             The information related to time to traverse segement is further
-             clarified below:
+             sure the minimum time to traverse segment is non-negative. The
+             minimum time to traverse segment is constant for all cars.
+             The definition for time to traverse segment can be found in the
+             glossary (refer to 7.23).
+             The information related to time to traverse segment is further
+             clarified below: 
                if the time to traverse segment = t (t is greater than or equal
                to 0), then the car has to stay in the segment for t time units
                and cannot go through any intersection whatsoever if the car's
@@ -210,7 +213,8 @@ Traffic Flow Simulator: Requirements Document
                actually because the simulation is not started yet in time unit
                0, so nothing is able to move in time unit 0, and the earliest
                time unit a car is able to move is at time unit 1. Thus, though
-               the above seems to be a contradiction, it is actually not
+               the above seems to be a contradiction, it is actually not.
+
              At the end of the execution, the 
              program will print out either a line using exactly the following
              format:
@@ -219,7 +223,7 @@ Traffic Flow Simulator: Requirements Document
                No cars left the grid
              where the ... is a decimal number. 
 
-             The program will not do the following two error checkings:
+             The program will not do the following two error checks:
              1) the program will assume cars put into each segment before the
                 simulation begins will not exceed the capacity of the segment,
                 so there will not be related error checking;
@@ -296,7 +300,16 @@ Traffic Flow Simulator: Requirements Document
          exactly one of the following holds:
         7.22.1 One segment aims Northward, and the other aims Southward
         7.22.2 One segment aims Eastward, and the other aims Westward
-        
+   7.23 The "time to traverse segment" is the number of time units a car
+        must wait until the car is at an intersection and can be considered to
+        move through the intersection. Consider the following cases below
+        letting t be the time to traverse segment and n to be the current time
+        unit a car is first traversing the segment:
+        7.23.1 If n is the integer 0 and t is the integer 0, the car may be
+               considered to leave the current segment at time unit 1.
+        7.23.2 If n is greater than the integer 0 or t is greater than the
+               integer 0, the car may be considered to leave the current segment
+               at time unit (n + t).        
 
 8. Names of values.  (Below is at least a partial chart you can use.)
 
