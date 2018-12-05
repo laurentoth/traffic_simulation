@@ -3,13 +3,16 @@ Author:  FOXES (Greg, Lauren, Maxine)
 We have added, to the requirements document, an additional entry to the
 glossary with header 7.23 for the term "time to traverse segment". This entry
 serves to clarify the meaning intended by the client and as it has been
-clarified to us in a recent email by Dr. C.
+clarified to us in a recent email by Dr. C. This definition added to the
+requirements document adheres to our implementation of "time to traverse
+segment" however this implementation was compromised by a fault in a separate
+part of our program (explanation of bug is found later in this document).
 
 We have also added sections 6.1.3 and 6.1.4 that detail the life cycle
-considerations of the ast two subsets, subsets 3 and 4 respectively.
+considerations of the last two subsets, subsets 3 and 4 respectively.
 
 In the requirements document, the description in subset 4 does *not* agree with
-our implementation, insofaras it does not exhibit the correct behavior of
+our implementation, so that it does not exhibit the correct behavior of
 advancing time units given by the example table in section 6.1.4.
 
 67-73 of Car.java:
@@ -42,3 +45,6 @@ The fixed implementation would be the following:
 ----------- END FIXED IMPLEMENTATION OF advanceOneTimeUnit() -------------
 
 note the differing positions of the line:   myRemainingTimeOnSeg--;
+
+After this change, subset 4 now agrees with the expected output of testing
+AC_data11_for_TrafficTesterView.
